@@ -1,4 +1,21 @@
 ProjetRails::Application.routes.draw do
+  root :to => "pages#home"	
+
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  get "pages/home"
+
+  get "pages/contact"
+
+  resources :users
+  resources :sessions, :only => [ :new, :create, :destroy ]
+  match "/signin", :to => "sessions#new"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
