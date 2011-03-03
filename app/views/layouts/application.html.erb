@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% flash.each do | key, value | %>
+<div><%=value%></div>
+<% end %>
+
+<%=signin_link%>
+
 <%= yield %>
 
 </body>

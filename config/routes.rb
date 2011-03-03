@@ -14,6 +14,9 @@ ProjetRails::Application.routes.draw do
   resources :users
   resources :sessions, :only => [ :new, :create, :destroy ]
   match "/signin", :to => "sessions#new"
+  match "/signout", :to => "sessions#destroy"
+  match "/users", :to => "users#"
+  match "/root", :to => "pages#home"
 
 
   # The priority is based upon order of creation:

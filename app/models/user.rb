@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 	end
 
 	def password_ok?(password)
-		return (secure_password = encode("#{salt}:#{password}"))
+		return (secure_password == encode("#{salt}:#{password}"))
 	end
 
 	def self.authenticate(name, password)
