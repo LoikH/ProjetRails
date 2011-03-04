@@ -4,3 +4,12 @@ Auteurs :
   - Bocquelet Julie
   - Hameaux Loik
   - Sauvage David
+
+Models :
+
+Utilisateur (login, mdp, mail, score_total, statut)
+Catégories (Nom, Popularite, nb_questionnaire)
+Score_Par_Cat (id_user, id_cat, score)
+Questionnaires (Titre, Difficulte, Popularite, Cout, nb_question, point_gagnant, id_categorie)
+Questions (id_questionnaire, id_reponse_ok, intitule, nb_point)
+Reponses (id_question, intitule)
