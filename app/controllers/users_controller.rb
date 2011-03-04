@@ -34,13 +34,13 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    user = session[:user]
-    if user.nil? then
+    @user = session[:user]
+    if @user.nil? then
       flash.now[:error] = "Connexion requise pour continuer !"
       redirect_to signin_path
       return 
     end
-    if user.id.to_i() != params[:id].to_i() then
+    if @user.id.to_i() != params[:id].to_i() then
       flash.now[:error] = "Ce n'est pas votre profil !"
       redirect_to users_path
       return
@@ -83,19 +83,19 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
-    user = session[:user]
-    if user.nil? then
+    @user = session[:user]
+    if @user.nil? then
       flash.now[:error] = "Connexion requise pour continuer !"
       redirect_to signin_path
       return 
     end
-    if user.id.to_i() != params[:id].to_i() then
+    if @user.id.to_i() != params[:id].to_i() then
       flash.now[:error] = "Ce n'est pas votre profil !"
       redirect_to users_path
       return
     end
-
-    user.destroy
+   
+    @user.destroy
 
     respond_to do |format|
       format.html { redirect_to(users_url) }

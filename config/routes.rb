@@ -15,7 +15,7 @@ ProjetRails::Application.routes.draw do
   resources :sessions, :only => [ :new, :create, :destroy ]
   match "/signin", :to => "sessions#new"
   match "/signout", :to => "sessions#destroy"
-  match "/users", :to => "users#"
+  match "/users", :to => "users#index"
   match "/root", :to => "pages#home"
 
 
