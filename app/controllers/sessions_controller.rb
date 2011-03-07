@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 class SessionsController < ApplicationController
   def new
     @title = "Connexion"
