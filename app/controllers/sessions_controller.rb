@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete :user
-    flash[:notice] = "Vous avez été déconnecté !"
+    flash[:notice] = "Vous avez ete deconnecte !"
     redirect_to root_path
   end
 
