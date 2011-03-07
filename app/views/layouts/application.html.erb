@@ -8,13 +8,23 @@
 </head>
 <body>
 
+<div id="principal">
+
+<div id="menu">
+	 <%= link_to "Accueil", root_path %> 
+	 <%= link_to "Top 10 Utilisateurs", users_path %> 
+	 <%= link_to "Top 10 Catégories", root_path %> 
+     <%= link_to_if(!session[:user], "S'inscrire", new_user_path) do end %>
+	 <%=signin_link%>
+</div>
+
+<%= yield %>
+
 <% flash.each do | key, value | %>
 <div><%=value %></div>
 <% end %>
 
-<%=signin_link%>
-
-<%= yield %>
+</div>
 
 <%= debug(params) if Rails.env.development? %>
 
