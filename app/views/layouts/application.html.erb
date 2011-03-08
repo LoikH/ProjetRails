@@ -7,27 +7,41 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+   <div id="principal">
+   
+		<div id="entete">
+		</div>
 
-<div id="principal">
+		<div id="menu">
+			<div class="menutitre"><%= link_to "Accueil", root_path, :class => "lienmenu" %> </div>
+			<div class="menutitre"><%= link_to "Top 10 Utilisateurs", users_path, :class => "lienmenu" %> </div>
+			<div class="menutitre"><%= link_to "Top 10 Catégories", root_path, :class => "lienmenu" %> </div>
+			<div class="menutitre"><%= link_to_if(!session[:user], "S'inscrire", new_user_path, :class => "lienmenu") do link_to "Voir profil", user_path(session[:user]), :class => "lienmenu" end %></div>
+			<div class="menutitre"><%=signin_link%></div>			
+		</div>
 
-<div id="menu">
-	 <%= link_to "Accueil", root_path %> 
-	 <%= link_to "Top 10 Utilisateurs", users_path %> 
-	 <%= link_to "Top 10 Catégories", root_path %> 
-     <%= link_to_if(!session[:user], "S'inscrire", new_user_path) do end %>
-	 <%=signin_link%>
-</div>
+		<div id="contenu">
+			<div id="haut">
+				<br><%= global_title %>
+				<div id="trait"></div>
+			</div>
+			<div id="milieu">
+				<%= yield %>
 
-<%= yield %>
+				<% flash.each do | key, value | %>
+				<div><%=value %></div>
+				<% end %>
 
-<% flash.each do | key, value | %>
-<div><%=value %></div>
-<% end %>
+			</div>
+			<div id="bas"></div>
+		</div>
 
-</div>
-
-<%= debug(params) if Rails.env.development? %>
-
-
+		<div id="pied">
+		Réalisé par Julie Bocquelet, Loik Hameaux et David Sauvage
+		</div>
+   </div>
 </body>
 </html>
+
+
+

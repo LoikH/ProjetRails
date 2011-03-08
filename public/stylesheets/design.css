@@ -1,12 +1,108 @@
 body{
-	margin:0;
-    padding:0;
+margin:0px;
+padding:0px;
+background-image:url('../images/bg.png');
+font-family:"Comic Sans MS";
 }
 
 #principal{
-	width : 600px;
-	margin : auto;
-	margin-top : 20px;
+margin-top:20px;
+margin-left:auto;
+margin-right:auto;
+width:794px;
 }
 
+#menu{
+margin-left:12px;
+margin-bottom:5px;
+width:800px;
+height:30px;
+font-size:10pt;
+}
+
+.menutitre{
+line-height:26px;
+float:left;
+padding:2px;
+margin-right:3px;
+text-align:center;
+/*background-color:black;*/
+color:white;
+background-image:url('../images/menu.png');
+width:147px;
+height:29px;
+overflow:hidden;
+}
+
+div.menutitre:hover{
+/*background-color:lightgray;*/
+color:white;
+background-image:url('../images/menu_hover.png');
+width:147px;
+height:29px;
+}
+
+#contenu{
+width:794px;
+color:white;
+}
+
+#haut{
+width:794px;
+height:54px;
+background:url('../images/haut.png') no-repeat;
+text-align:center;
+font-size:16pt;
+}
+
+#trait{
+width:600px;
+height:2px;
+text-align:center;
+margin:auto;
+background-color:rgb(50,50,50);
+}
+
+#milieu{
+background:url('../images/milieu.png') repeat-y;
+width:794px;
+min-height:281px;
+padding:20px;
+}
+
+#bas{
+width:794px;
+height:60px;
+background:url('../images/bas.png') no-repeat;
+}
+
+#entete{
+width:436px;
+height:76px;
+padding:5px;
+margin:auto;
+background:url('../images/titre.png') no-repeat;
+}
+
+#pied{
+margin-top:5px;
+width:794px;
+padding:5px;
+border-top:thin solid gray;
+text-align:center;
+font-weight:italic;
+font-size:8pt;
+color:gray;
+}
+
+p
+{
+padding-left:10px;
+padding-bottom:5px;
+}
+
+a.lienmenu, a.lienmenu:visited{
+color:white;
+text-decoration:none;
+}
 

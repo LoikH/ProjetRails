@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   # GET /users.xml
   def index
     @users = User.all
+	@title = "Liste des utilisateurs"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new.xml
   def new
     @user = User.new
+	@title = "Nouvel utilisateur"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +37,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = session[:user]
+	@title = "Editer un utilisateur"
     if @user.nil? then
       flash.now[:error] = "Connexion requise pour continuer !"
       redirect_to signin_path

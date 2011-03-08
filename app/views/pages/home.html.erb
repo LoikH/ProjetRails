@@ -1,6 +1,4 @@
 <% user = session[:user] %>
-<% if user.nil? then %>
-    <p> Bienvenue ! </p>
-<% else %>
+<% if !user.nil? then %>
     Bonjour <%= user.name %>  !
 <% end %>
