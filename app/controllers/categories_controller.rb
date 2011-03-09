@@ -4,6 +4,10 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def top10
+    @categories = Category.order(:popularity).limit(10)
+  end
+
   def show
     @category = Category.find(params[:id])
   end

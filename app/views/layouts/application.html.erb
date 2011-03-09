@@ -15,7 +15,7 @@
 		<div id="menu">
 			<div class="menutitre"><%= link_to "Accueil", root_path, :class => "lienmenu" %> </div>
 			<div class="menutitre"><%= link_to "Top 10 Utilisateurs", users_path, :class => "lienmenu" %> </div>
-			<div class="menutitre"><%= link_to "Top 10 Catégories", root_path, :class => "lienmenu" %> </div>
+			<div class="menutitre"><%= link_to "Top 10 Catégories", categories_path, :class => "lienmenu" %> </div>
 			<div class="menutitre"><%= link_to_if(!session[:user], "S'inscrire", new_user_path, :class => "lienmenu") do link_to "Voir profil", user_path(session[:user]), :class => "lienmenu" end %></div>
 			<div class="menutitre"><%=signin_link%></div>			
 		</div>
