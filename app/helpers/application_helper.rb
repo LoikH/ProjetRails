@@ -5,16 +5,19 @@ module ApplicationHelper
     def signin_link
         user = session[:user]
         if user.nil? then
-            return link_to("Se connecter", signin_path)
+            return link_to("Se connecter", signin_path, :class => "lienmenu")
         else
-            link = "Bonjour, #{user.name} ! Vous êtes connecté en tant"
-	    if user.admin then
-	      link << " qu' administrateur."
-	    else
-	      link << " que joueur."
-	    end
-            link << " - #{link_to 'Se déconnecter', signout_path, :method => :delete}"
+            link = "#{link_to 'Se déconnecter', signout_path, :method => :delete, :class => "lienmenu"}"
             return link.html_safe
         end
-    end        
+    end    
+
+	def global_title
+		base_title = "Titre"
+		if @title.nil? then
+			return base_title
+		else 
+			return "#{@title}"
+		end
+	end    
 end

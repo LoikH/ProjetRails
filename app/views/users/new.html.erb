@@ -2,8 +2,7 @@
 
 <% if session_admin? then %> 
 <%= render 'form_admin' %>
-<% else %>
-<%= render 'form' %>
+<% else %><%= render 'form' %>
 <% end %>
 
 <%= link_to 'Back', users_path %>
