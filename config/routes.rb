@@ -11,6 +11,7 @@ ProjetRails::Application.routes.draw do
 
   get "pages/contact"
 
+  resources :categories
   resources :users
   resources :sessions, :only => [ :new, :create, :destroy ]
   match "/signin", :to => "sessions#new"
