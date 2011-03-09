@@ -12,12 +12,12 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.name %></td>
+    <td><%= link_to user.name, user %></td>
     <td><%= user.email %></td>
     <td><%= user.score %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if session_admin? %>
+      <td><%= link_to 'Destroy', user, :confirm => 'Etes-vous sûr?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

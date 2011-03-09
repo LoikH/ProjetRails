@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @user.name %>
@@ -13,6 +12,15 @@
 <p>
   <b>Score:</b>
   <%= @user.score %>
+</p>
+
+<p>
+  <b>Statut:</b>
+  <% if @user.admin then %>
+    Admin
+  <% else %>
+    Joueur
+  <% end %>
 </p>
 
 

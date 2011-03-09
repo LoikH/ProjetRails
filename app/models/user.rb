@@ -6,7 +6,7 @@ require 'digest'
 
 class User < ActiveRecord::Base
 	attr_accessor :password
-	attr_accessible :name, :email, :password, :password_confirmation
+	attr_accessible :name, :email, :password, :password_confirmation, :admin
 
 
 	validates_presence_of :name
@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 	validates_format_of :email, :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates_uniqueness_of :email, :case_sensitive => false
 
+	validates_presence_of :password
 	validates_confirmation_of :password
 
 	before_save :encode_password

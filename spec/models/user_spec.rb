@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before :each do
-	@attr = { :name => "Toto", :email => "a@a.fr", :password => "foobar", :password_confirmation => "foobar" }
+	@attr = { :name => "Toto", :email => "a@a.fr", :password => "foobar", :password_confirmation => "foobar", :admin => false }
   end
 
   it "should require a name" do

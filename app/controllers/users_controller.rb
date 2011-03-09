@@ -2,6 +2,45 @@
 
 
 class UsersController < ApplicationController
+
+  before_filter :get_auth_edit, :only => [:edit]
+  before_filter :get_auth_destroy, :only => [:destroy]
+
+  def get_auth_edit
+    #get_user_session
+    user = session[:user]
+    
+    if user.nil? then
+      flash[:error] = "Connexion requise pour continuer !"
+      redirect_to signin_path
+      return 
+    end
+      if user.id.to_i() != params[:id].to_i() then
+	flash[:error] = "Ce n'est pas votre profil !"
+	redirect_to users_path
+	return
+      end
+  end
+
+  def get_auth_destroy
+    #get_user_session
+    user = session[:user]
+    
+    if user.nil? then
+      flash[:error] = "Connexion requise pour continuer !"
+      redirect_to signin_path
+      return 
+    end
+    if not session_admin?
+      if user.id.to_i() != params[:id].to_i() then
+	flash[:error] = "Ce n'est pas votre profil !"
+	redirect_to users_path
+	return
+      end
+    end
+  end
+
+
   # GET /users
   # GET /users.xml
   def index
@@ -37,17 +76,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = session[:user]
-    if @user.nil? then
-      flash.now[:error] = "Connexion requise pour continuer !"
-      redirect_to signin_path
-      return 
-    end
-    if @user.id.to_i() != params[:id].to_i() then
-      flash.now[:error] = "Ce n'est pas votre profil !"
-      redirect_to users_path
-      return
-    end
+    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -55,6 +84,19 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.score = 0
+    if User.count == 0
+      @user.admin = true
+    else
+      @user.admin = false
+    end
+
+    if params[:user][:admin]=="1" then
+      @user.admin = true
+    end
+    if params[:user][:admin]=="0" then
+      @user.admin = false
+    end
+
 
     respond_to do |format|
       if @user.save
@@ -86,19 +128,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
-    @user = session[:user]
-    if @user.nil? then
-      flash.now[:error] = "Connexion requise pour continuer !"
-      redirect_to signin_path
-      return 
-    end
-    if @user.id.to_i() != params[:id].to_i() then
-      flash.now[:error] = "Ce n'est pas votre profil !"
-      redirect_to users_path
-      return
-    end
-   
+    @user = User.find(params[:id])
     @user.destroy
+    #signout
 
     respond_to do |format|
       format.html { redirect_to(users_url) }
