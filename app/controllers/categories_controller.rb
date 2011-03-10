@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+	@title= "Liste des catégories"
   end
 
   def top10
@@ -28,7 +29,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to(@category, :notice => 'Category was successfully created.') }
+        format.html { redirect_to(@category, :notice => 'La catégorie a été ajoutée avec succès.') }
         format.xml  { render :xml => @category, :status => :created, :location => @category }
       else
         format.html { render :action => "new" }
@@ -42,7 +43,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to(@category, :notice => 'Category was successfully updated.') }
+        format.html { redirect_to(@category, :notice => 'La catégorie a été mise à jour avec succès.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

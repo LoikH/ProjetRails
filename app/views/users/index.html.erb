@@ -1,7 +1,6 @@
 <table>
   <tr>
     <th>Nom</th>
-    <th>Email</th>
     <th>Score</th>
     <th></th>
   </tr>
@@ -9,7 +8,6 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= link_to user.name, user %></td>
-    <td><%= user.email %></td>
     <td><%= user.score %></td>
     <% if session_admin? %>
       <td><%= link_to 'Supprimer', user, :confirm => 'Etes-vous sûr?', :method => :delete %></td>

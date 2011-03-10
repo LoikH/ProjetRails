@@ -9,17 +9,17 @@ class User < ActiveRecord::Base
 	attr_accessible :name, :email, :password, :password_confirmation, :admin
 
 
-	validates_presence_of :name
-	validates_length_of :name, :within => 2..30 
+	validates_presence_of :name, :message => "Nom obligatoire"
+	validates_length_of :name, :within => 2..30, :message => "Le nom doit avoir entre 2 et 30 caractères" 
 	validates_uniqueness_of :name, :case_sensitive => false
 
 
-	validates_presence_of :email
-	validates_format_of :email, :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+	validates_presence_of :email, :message => "Email obligatoire" 
+	validates_format_of :email, :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, :message => "Email incorrect"
 	validates_uniqueness_of :email, :case_sensitive => false
 
-	validates_presence_of :password
-	validates_confirmation_of :password
+	validates_presence_of :password, :message => "Absence de mot de passe"
+	validates_confirmation_of :password, :message => "Absence de la confirmation du mot de passe"
 
 	before_save :encode_password
 

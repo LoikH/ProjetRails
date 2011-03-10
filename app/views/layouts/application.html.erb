@@ -13,19 +13,19 @@
 		</div>
 
 		<div id="menu">
-			<div class="menutitre"><%= link_to "Accueil", root_path, :class => "lienmenu" %> </div>
-			<div class="menutitre"><%= link_to "Top 10 Utilisateurs", users_path, :class => "lienmenu" %> </div>
-			<div class="menutitre"><%= link_to "Top 10 Catégories", categories_path, :class => "lienmenu" %> </div>
-			<div class="menutitre"><%= link_to_if(!session[:user], "S'inscrire", new_user_path, :class => "lienmenu") do link_to "Voir profil", user_path(session[:user]), :class => "lienmenu" end %></div>
-			<div class="menutitre"><%=signin_link%></div>			
+			<%= link_to "Accueil", root_path, :class => "lienmenu" %>
+			<%= link_to "Top 10 Utilisateurs", users_path, :class => "lienmenu" %>
+			<%= link_to "Top 10 Catégories", categories_path, :class => "lienmenu" %>
+			<%= link_to_if(!session[:user], "S'inscrire", new_user_path, :class => "lienmenu") do link_to "Voir profil", user_path(session[:user]), :class => "lienmenu" end %>
+			<%=signin_link%>		
 		</div>
 
 		<div id="contenu">
 			<div id="haut">
 				<br><%= global_title %>
-				<div id="trait"></div>
 			</div>
 			<div id="milieu">
+				<div id="trait"></div>
 				<% flash.each do | key, value | %>
 					<div id="<%= key %>"><%=value %></div>
 				<% end %>

@@ -4,7 +4,7 @@
       <h2>Impossible de sauvegarder :</h2>
 
       <ul>
-      <% @category.errors.full_messages.each do |msg| %>
+      <% @category.errors.each do |attr, msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -16,6 +16,6 @@
     <%= f.text_field :name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Valider" %>
   </div>
 <% end %>

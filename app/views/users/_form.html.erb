@@ -4,7 +4,7 @@
       <h2> Impossible de sauvegarder :</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+      <% @user.errors.each do |attr, msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
