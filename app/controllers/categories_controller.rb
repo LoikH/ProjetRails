@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-	@title= "Liste des catégories"
+    @title= "Liste des catégories"
   end
 
   def top10
