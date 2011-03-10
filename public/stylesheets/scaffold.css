@@ -10,16 +10,8 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; }
-
 div.field, div.actions {
   margin-bottom: 10px;
-}
-
-#notice {
-  color: green;
 }
 
 .field_with_errors {
@@ -51,4 +43,5 @@ div.field, div.actions {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
+  color : red;
 }

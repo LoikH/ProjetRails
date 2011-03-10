@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2> Impossible de sauvegarder :</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nom" %><br />
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, "Email" %><br />
     <%= f.text_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, "Mot de passe" %><br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
@@ -31,6 +31,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Valider" %>
   </div>
 <% end %>

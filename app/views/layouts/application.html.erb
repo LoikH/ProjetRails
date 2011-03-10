@@ -26,12 +26,11 @@
 				<div id="trait"></div>
 			</div>
 			<div id="milieu">
-				<%= yield %>
-
 				<% flash.each do | key, value | %>
-				<div><%=value %></div>
+					<div id="<%= key %>"><%=value %></div>
 				<% end %>
-
+				
+				<div id="texte"><%= yield %></div>
 			</div>
 			<div id="bas"></div>
 		</div>

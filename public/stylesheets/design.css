@@ -70,6 +70,9 @@ min-height:281px;
 padding:20px;
 }
 
+#texte{
+}
+
 #bas{
 width:794px;
 height:60px;
@@ -102,7 +105,46 @@ padding-bottom:5px;
 }
 
 a.lienmenu, a.lienmenu:visited{
+font-weight:normal;
 color:white;
 text-decoration:none;
+background-color:transparent;
+}
+
+
+a{ 
+font-weight:bold;
+color: #E5E5A9; 
+text-decoration : none;
+}
+
+a:hover 
+{
+color: #fff; 
+background-color:#2b2a2a; 
+padding : 5px;
+}
+
+#notice{ 
+width : 700px;
+padding : 5px;
+margin : 20px;
+background-color: #006600; 
+border: 1px solid #0F0; 
+color : white;
+}
+
+#error{ 
+color : white;
+width : 700px;
+margin : 20px;
+padding : 5px;
+background-color: #660000; 
+border: 1px solid #F00; 
+}
+
+td{
+height : 20px;
+width : 100px;
 }
 

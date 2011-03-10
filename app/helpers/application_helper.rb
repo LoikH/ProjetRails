@@ -13,7 +13,7 @@ module ApplicationHelper
     end    
 
 	def global_title
-		base_title = "Titre"
+		base_title = "Bienvenue !"
 		if @title.nil? then
 			return base_title
 		else 
