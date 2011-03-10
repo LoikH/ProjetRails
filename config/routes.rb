@@ -11,12 +11,14 @@ ProjetRails::Application.routes.draw do
 
   get "pages/contact"
 
+  resources :categories
   resources :users
   resources :sessions, :only => [ :new, :create, :destroy ]
   match "/signin", :to => "sessions#new"
   match "/signout", :to => "sessions#destroy"
   match "/users", :to => "users#index"
   match "/root", :to => "pages#home"
+  match "/top10cat", :to => "categories#top10"
 
 
   # The priority is based upon order of creation:

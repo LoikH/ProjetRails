@@ -1,0 +1,18 @@
+<p>
+  <b>Nom :</b>
+  <%= @category.name %>
+</p>
+
+<p>
+  <b>Popularite :</b>
+  <%= @category.popularity %>
+</p>
+
+<p>
+  <b>Nombre de Questionnaire :</b>
+  <%= @category.nb_mcq %>
+</p>
+
+
+<%= link_to 'Editer', edit_category_path(@category) %> |
+<%= link_to 'Retour', categories_path %>

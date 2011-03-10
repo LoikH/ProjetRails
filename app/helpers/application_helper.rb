@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 module ApplicationHelper
     def signin_link
         user = session[:user]
@@ -20,4 +19,5 @@ module ApplicationHelper
 			return "#{@title}"
 		end
 	end    
+
 end
