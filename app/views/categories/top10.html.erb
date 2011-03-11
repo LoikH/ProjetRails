@@ -12,16 +12,10 @@
 
 <% @categories.each do |category| %>
   <tr>
-    <td><%= category.name %></td>
+    <td><%= link_to category.name, category %></td>
     <td><%= category.popularity %></td>
     <td><%= category.nb_mcq %></td>
-    <td><%= link_to 'Voir', category %></td>
-    <td><%= link_to 'Editer', edit_category_path(category) %></td>
-    <td><%= link_to 'Supprimer', category, :confirm => 'Etes vous sur ?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
 <br />
-
-<%= link_to 'Nouvelle Categorie', new_category_path %>
