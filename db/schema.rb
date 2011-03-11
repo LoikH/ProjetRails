@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(:version => 20110311130530) do
     t.datetime "updated_at"
   end
 
+  create_table "questionnaires", :force => true do |t|
+    t.string   "title"
+    t.integer  "difficulty"
+    t.integer  "popularity"
+    t.integer  "cost"
+    t.integer  "nb_questions"
+    t.integer  "point"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.integer  "points"

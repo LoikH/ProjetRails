@@ -15,9 +15,9 @@
 		<div id="menu">
 			<%= link_to_if(session_admin?, "Questions", questions_path, :class => "lienmenu") do end  %>
 			<%= link_to_if(session_admin?, "Réponses", reponses_path, :class => "lienmenu") do end %>
-			<%= link_to "Questionnaires", root_path, :class => "lienmenu" %>
 			<%= link_to "Top 10 Utilisateurs", users_path, :class => "lienmenu" %>
 			<%= link_to "Top 10 Catégories", categories_path, :class => "lienmenu" %>
+			<%= link_to "Top 10 Questionnaires", questionnaires_path, :class => "lienmenu" %>
 			<%= link_to_if(!session[:user], "S'inscrire", new_user_path, :class => "lienmenu") do link_to "Voir profil", user_path(session[:user]), :class => "lienmenu" end %>
 			<%=signin_link%>		
 		</div>

@@ -1,0 +1,27 @@
+<% if @questionnaires.count !=0 %>
+<table>
+  <tr>
+    <th>Titre</th>
+    <th>Popularité</th>
+    <th>Difficulté</th>
+    <th>Coût</th>
+    <th>Questions</th>
+    <th>Points à gagner</th>
+  </tr>
+
+<% @questionnaires.each do |questionnaire| %>
+  <tr>
+    <td><%= link_to questionnaire.title, questionnaire %></td>
+    <td><%= questionnaire.popularity %></td>
+    <td><%= questionnaire.difficulty %></td>
+    <td><%= questionnaire.cost %></td>
+    <td><%= 0 %></td>
+    <td><%= 0 %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% end %>
+
+<%= link_to_if(session_admin?, 'Nouveau questionnaire', new_questionnaire_path) do end %>
