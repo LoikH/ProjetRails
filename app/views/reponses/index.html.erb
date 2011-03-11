@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th>Réponse</th>
+    <th>Correcte</th>
+  </tr>
+
+<% @reponses.each do |reponse| %>
+  <tr>
+    <td><%= reponse.title %></td>
+    <td><% if reponse.correct then %>
+    		Correcte
+ 	    <% else %>
+   		    Mauvaise
+	    <% end %></td>
+    <td><%= link_to 'Voir', reponse %></td>
+    <td><%= link_to 'Editer', edit_reponse_path(reponse) %></td>
+    <td><%= link_to 'Supprimer', reponse, :confirm => 'Etes vous sur ?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nouvelle réponse', new_reponse_path %>

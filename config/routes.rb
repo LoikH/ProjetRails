@@ -13,6 +13,7 @@ ProjetRails::Application.routes.draw do
 
   resources :categories
   resources :questions
+  resources :reponses
   resources :users
   resources :sessions, :only => [ :new, :create, :destroy ]
   match "/signin", :to => "sessions#new"

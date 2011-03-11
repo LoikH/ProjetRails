@@ -15,7 +15,7 @@ describe Question do
     question.should_not be_valid
   end
 
-  it "should not have two same names" do
+  it "should not have two same titles" do
     quest1 = Question.create @attr
     quest2 = Question.new @attr
     quest2.should_not be_valid
