@@ -16,9 +16,9 @@ width:794px;
 margin-left:12px;
 margin-bottom:5px;
 width:800px;
-height:60px;
 font-size:10pt;
 text-align:center;
+min-height:30px;
 }
 
 a.lienmenu, a.lienmenu:visited, a.lienmenu:hover{

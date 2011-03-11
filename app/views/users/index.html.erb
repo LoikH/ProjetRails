@@ -1,13 +1,14 @@
+<% if @users.count !=0 %>
 <table>
   <tr>
     <th>Nom</th>
     <th>Score</th>
-    <th></th>
+    <% if session_admin? %> <th></th> <% end %>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= link_to user.name, user %></td>
+    <td><%= link_to_if(session_admin?, user.name, user) do user.name end %></td>
     <td><%= user.score %></td>
     <% if session_admin? %>
       <td><%= link_to 'Supprimer', user, :confirm => 'Etes-vous sûr?', :method => :delete %></td>
@@ -17,5 +18,6 @@
 </table>
 
 <br />
+<% end %>
 
-<%= link_to 'Nouvel utilisateur', new_user_path %>
+<%= link_to_if(session_admin?, 'Nouvel utilisateur', new_user_path) do end %>

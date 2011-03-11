@@ -1,20 +1,21 @@
+<% if @questions.count !=0 %>
 <table>
   <tr>
     <th>Question</th>
     <th>Nombre de points</th>
+	<th></th>
   </tr>
 
 <% @questions.each do |question| %>
   <tr>
-    <td><%= question.title %></td>
+    <td><%= link_to question.title, question %></td>
     <td><%= question.points %></td>
-    <td><%= link_to 'Voir', question %></td>
-    <td><%= link_to 'Editer', edit_question_path(question) %></td>
     <td><%= link_to 'Supprimer', question, :confirm => 'Etes vous sur ?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
+<% end %>
 
 <%= link_to 'Nouvelle question', new_question_path %>
