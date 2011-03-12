@@ -14,4 +14,4 @@
 </p>
 
 
-<%= link_to 'Editer', edit_category_path(@category) %>
+<%= link_to_if(session_admin?, 'Editer', edit_category_path(@category)) do end %>

@@ -1,0 +1,32 @@
+<p>
+  <b>Titre :</b>
+  <%= @questionnaire.title %>
+</p>
+
+<p>
+  <b>Popularite :</b>
+  <%= @questionnaire.popularity %>
+</p>
+
+<p>
+  <b>Difficulté :</b>
+  <%= @questionnaire.difficulty %>
+</p>
+
+<p>
+  <b>Coût :</b>
+  <%= @questionnaire.cost %>
+</p>
+
+<p>
+  <b>Questions :</b>
+  <%= 0 %>
+</p>
+
+<p>
+  <b>Points à gagner</b>
+  <%= 0 %>
+</p>
+
+<%= link_to 'Editer', edit_questionnaire_path(@questionnaire) %>
+<%= link_to 'Supprimer', @questionnaire, :confirm => 'Etes-vous sûr?', :method => :delete %>

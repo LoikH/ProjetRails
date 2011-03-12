@@ -1,0 +1,25 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2>Impossible de sauvegarder :</h2>
+
+      <ul>
+      <% @question.errors.each do |attr, msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "Question :" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :points, "Nombre de points :" %><br />
+    <%= f.text_field :points %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Valider" %>
+  </div>
+<% end %>

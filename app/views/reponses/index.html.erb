@@ -1,0 +1,25 @@
+<% if @reponses.count !=0 %>
+<table>
+  <tr>
+    <th>Réponse</th>
+    <th>Correcte</th>
+	<th></th>
+  </tr>
+
+<% @reponses.each do |reponse| %>
+  <tr>
+    <td><%= link_to reponse.title, reponse %></td>
+    <td><% if reponse.correct then %>
+    		Correcte
+ 	    <% else %>
+   		    Mauvaise
+	    <% end %></td>
+    <td><%= link_to 'Supprimer', reponse, :confirm => 'Etes vous sur ?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% end %>
+
+<%= link_to 'Nouvelle réponse', new_reponse_path %>

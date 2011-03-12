@@ -1,0 +1,25 @@
+<%= form_for(@reponse) do |f| %>
+  <% if @reponse.errors.any? %>
+    <div id="error_explanation">
+      <h2>Impossible de sauvegarder :</h2>
+
+      <ul>
+      <% @reponse.errors.each do |attr, msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "Reponse :" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :correct, "Correcte ?" %><br />
+    <%= f.check_box :correct %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Valider" %>
+  </div>
+<% end %>

@@ -13,3 +13,17 @@ Score_Par_Cat (id_user, id_cat, score)
 Questionnaires (Titre, Difficulte, Popularite, Cout, nb_question, point_gagnant, id_categorie)
 Questions (id_questionnaire, id_reponse_ok, intitule, nb_point)
 Reponses (id_question, intitule)
+
+A propos des relations : 
+-Categories has_many Questionnaires
+-Questionnaire belongs_to Categorie
+=>Questionnaire a un champ category_id
+
+-Questionnaire has_many Questions
+-Question belongs_to Questionnaire
+=>Question a un champ Questionnaire_id
+
+-Questions has_many Reponses
+-Reponse belongs_to Question
+=>Reponse a un champ Question_id
+

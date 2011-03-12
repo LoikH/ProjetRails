@@ -1,0 +1,15 @@
+<p>
+  <b>Reponse :</b>
+  <%= @reponse.title %>
+</p>
+
+<p>
+  <b>Correcte :</b>
+  <% if @reponse.correct then %>
+    	Correcte
+  <% else %>
+  		Mauvaise
+  <% end %>
+</p>
+
+<%= link_to 'Editer', edit_reponse_path(@reponse) %>

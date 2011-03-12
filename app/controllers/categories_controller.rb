@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
+	@title = "Editer une catégorie"
   end
 
   def create

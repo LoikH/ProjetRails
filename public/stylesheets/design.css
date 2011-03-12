@@ -16,8 +16,9 @@ width:794px;
 margin-left:12px;
 margin-bottom:5px;
 width:800px;
-height:30px;
 font-size:10pt;
+text-align:center;
+min-height:30px;
 }
 
 a.lienmenu, a.lienmenu:visited, a.lienmenu:hover{
@@ -26,7 +27,7 @@ color:white;
 text-decoration:none;
 background-color:transparent;
 line-height:26px;
-float:left;
+display:inline-block;
 padding:2px;
 width:147px;
 height:29px;
@@ -80,6 +81,7 @@ font-size:10pt;
 #texte{
 display:inline-block;
 text-align:left;
+overflow:hidden;
 }
 
 #bas{
@@ -140,5 +142,5 @@ border: 1px solid #F00;
 
 td{
 height : 20px;
-width : 100px;
+width : 120px;
 }

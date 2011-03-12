@@ -1,0 +1,11 @@
+<p>
+  <b>Question :</b>
+  <%= @question.title %>
+</p>
+
+<p>
+  <b>Nombre de points :</b>
+  <%= @question.points %>
+</p>
+
+<%= link_to 'Editer', edit_question_path(@question) %>
