@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class QuestionsController < ApplicationController
 
   before_filter :get_auth, :only => [:new, :edit, :destroy]
