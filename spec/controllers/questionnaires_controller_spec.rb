@@ -3,7 +3,11 @@ require 'spec_helper'
 describe QuestionnairesController do
 
   before :each do
-    @attr = { :title => "Mon questionnaire", :difficulty => 0, :popularity => 0, :cost => 0, :nb_questions => 0, :point => 0 } end
+    @attr = { :title => "Mon questionnaire", :difficulty => 0, :popularity => 0, :cost => 0, :nb_questions => 0, :point => 0 } 
+    @cat = Category.create({ :name => "Example", :popularity => 0, :nb_mcq => 0}
+)
+
+  end
 
   describe "get index" do
     it "should have a successful response" do
@@ -15,7 +19,7 @@ describe QuestionnairesController do
   describe "get show" do
     it "should be able to see a questionnaire" do
       #we create a questionnaire to see it
-      Questionnaire.create @attr
+      @cat.questionnaires.create @attr
       get :show, :id =>1
       response.should be_success
     end
@@ -31,7 +35,7 @@ describe QuestionnairesController do
   describe "get edit" do
     it "should have a successful response" do
       #we create a questionnaire to edit it
-      Questionnaire.create @attr
+      @cat.questionnaires.create @attr
       get :edit, :id =>1
       response.should be_success
     end
@@ -54,7 +58,7 @@ describe QuestionnairesController do
   describe "Questionnaire update success" do
     before :each do
       #we create a questionnaire to edit it
-      Questionnaire.create @attr
+      @cat.questionnaires.create @attr
     end
 
     it "should edit a questionnaire" do
@@ -63,7 +67,7 @@ describe QuestionnairesController do
 
     it "should be redirected to the questionnaire" do
       #we create an other one to edit the first one with
-      c = Questionnaire.new
+      c = @cat.questionnaires.new
       c.title = "new"
       post :update, :id =>1, :questionnaire => c
       response.should redirect_to(questionnaire_path(assigns(:questionnaire)))
@@ -73,7 +77,7 @@ describe QuestionnairesController do
   describe "Questionnaire destroy success" do
     before :each do
       #we create a questionnaire to destroy it
-      Questionnaire.create @attr
+      @cat.questionnaires.create @attr
     end
 
     it "should destroy a questionnaire" do
