@@ -4,6 +4,7 @@
 class Questionnaire < ActiveRecord::Base
 
   belongs_to :category
+  has_many :questions
   validates_presence_of :title, :message => "Titre obligatoire"
   validates_presence_of :difficulty, :popularity, :cost, :point
   validates_numericality_of :popularity, :cost, :point
