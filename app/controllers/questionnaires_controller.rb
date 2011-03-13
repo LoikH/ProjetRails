@@ -17,8 +17,10 @@ class QuestionnairesController < ApplicationController
   end
 
   def new
-    @questionnaire = Questionnaire.new
+      @questionnaire = Questionnaire.new
+      @category = Category.find(params[:cat])
 	@title = "Nouveau questionnaire"
+
   end
 
   def edit
@@ -26,11 +28,14 @@ class QuestionnairesController < ApplicationController
   end
 
   def create
-    @questionnaire = Questionnaire.new(params[:questionnaire])
+    @category = Category.find(params[:questionnaire][:category])
+    
+    @questionnaire = @category.questionnaires.new
+    @questionnaire.title = params[:questionnaire][:title]
+    @questionnaire.difficulty = params[:questionnaire][:difficulty]
     @questionnaire.popularity = 0
     @questionnaire.cost = 0
     @questionnaire.point = 0
- # @questionnaire.difficulty = 0
 
 
     respond_to do |format|

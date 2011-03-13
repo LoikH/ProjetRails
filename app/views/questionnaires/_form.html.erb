@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    Catégorie : <%= @category.name%>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field(:category, :value => @category.id) %>
+  </div>
+
   <div class="field">
     <%= f.label :title, "Titre :" %><br />
     <%= f.text_field :title %>
