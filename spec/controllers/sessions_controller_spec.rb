@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe SessionsController do
 
-before :each do
-    @attr = { :name => "Toto", :email => "toto@toto.fr", :password => "toto", :password_confirmation => "toto"}    
+  before :each do
+    @attr = { :name => "Toto", :email => "toto@toto.fr", :password => "toto", :password_confirmation => "toto"}
   end
-
 
   describe "GET 'new'" do
     it "should be successful" do
@@ -17,8 +16,8 @@ before :each do
   describe "GET 'create'" do
     it "should be successful" do
       User.create @attr
-      params = {:user => {:name => "toto", :password => "toto"}}
-      get :create, :params => params
+      session = {:name => "toto", :password => "toto"}
+      get :create, :session => session
       response.should be_success
     end
   end
