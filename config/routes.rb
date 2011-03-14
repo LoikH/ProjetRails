@@ -21,8 +21,8 @@ ProjetRails::Application.routes.draw do
   match "/signout", :to => "sessions#destroy"
   match "/users", :to => "users#index"
   match "/root", :to => "pages#home"
-  match "/top10cat", :to => "categories#top10"
-  match "/top10quest", :to => "questionnaires#top10"
+  match "/top10", :to => "pages#top10"
+  match "/nouveautes", :to => "questionnaires#nouveautes"
 
 
   # The priority is based upon order of creation:

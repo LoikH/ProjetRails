@@ -1,4 +1,4 @@
-<% if @category.questionnaires.count !=0 %>
+<% if @nouveautes.count !=0 %>
 <table>
   <tr>
     <th>Titre</th>
@@ -9,7 +9,7 @@
     <th>Points à gagner</th>
   </tr>
 
-<% @category.questionnaires.each do |questionnaire| %>
+<% @nouveautes.each do |questionnaire| %>
   <tr>
     <td><%= link_to questionnaire.title, questionnaire %></td>
     <td><%= questionnaire.popularity %></td>
@@ -24,5 +24,5 @@
 <br />
 
 <% else %>
-	Aucun questionnaire.
+	Aucune nouveauté.
 <% end %>

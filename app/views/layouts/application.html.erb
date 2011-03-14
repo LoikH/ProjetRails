@@ -10,14 +10,13 @@
    <div id="principal">
    
 		<div id="entete">
+			<%= link_to image_tag('titre.png', :size => "763x69", :border => "0"), root_path, :id => "titre" %>
 		</div>
 
 		<div id="menu">
-			<%= link_to_if(session_admin?, "Questions", questions_path, :class => "lienmenu") do end  %>
-			<%= link_to_if(session_admin?, "Réponses", reponses_path, :class => "lienmenu") do end %>
-			<%= link_to "Top 10 Utilisateurs", users_path, :class => "lienmenu" %>
-			<%= link_to "Top 10 Catégories", categories_path, :class => "lienmenu" %>
-			<%= link_to "Top 10 Questionnaires", questionnaires_path, :class => "lienmenu" %>
+			<%= link_to "Nouveautés", nouveautes_path, :class => "lienmenu" %>
+			<%= link_to "Catégories", categories_path, :class => "lienmenu" %>
+			<%= link_to "Top 10", top10_path, :class => "lienmenu" %>
 			<%= link_to_if(!session[:user], "S'inscrire", new_user_path, :class => "lienmenu") do link_to "Voir profil", user_path(session[:user]), :class => "lienmenu" end %>
 			<%=signin_link%>		
 		</div>

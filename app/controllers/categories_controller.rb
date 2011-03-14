@@ -6,12 +6,9 @@ class CategoriesController < ApplicationController
     @title= "Liste des catégories"
   end
 
-  def top10
-    @categories = Category.order(:popularity).limit(10)
-  end
-
   def show
     @category = Category.find(params[:id])
+    @title = "Liste des questionnaires de #{@category.name}"
   end
 
   def new
