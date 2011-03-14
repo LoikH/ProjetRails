@@ -23,7 +23,7 @@ min-height:30px;
 
 a.lienmenu, a.lienmenu:visited, a.lienmenu:hover{
 font-weight:normal;
-color:white;
+color:#00c9e0;
 text-decoration:none;
 background-color:transparent;
 line-height:26px;
@@ -46,7 +46,7 @@ background-image:url('../images/menu_hover.png');
 
 #contenu{
 width:794px;
-color:white;
+color:#00c9e0;
 }
 
 #haut{
@@ -91,11 +91,15 @@ background:url('../images/bas.png') no-repeat;
 }
 
 #entete{
-width:763px;
-height:69px;
+width:794px;
+height:70px;
 padding:5px;
-margin:auto;
-background:url('../images/titre.png') no-repeat;
+text-align:center;
+}
+
+#titre{
+text-decoration : none;
+background-color:transparent; 
 }
 
 #pied{
