@@ -20,6 +20,9 @@
 </table>
 
 <br />
+
+<% else %>
+	Aucune catégorie.
 <% end %>
 
 <%= link_to_if(session_admin?, 'Nouvelle Categorie', new_category_path) do end %>

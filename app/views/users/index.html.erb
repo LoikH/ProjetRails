@@ -18,6 +18,11 @@
 </table>
 
 <br />
+
+<% else %>
+	Aucun utilisateur.
 <% end %>
+
+<br /><br />
 
 <%= link_to_if(session_admin?, 'Nouvel utilisateur', new_user_path) do end %>

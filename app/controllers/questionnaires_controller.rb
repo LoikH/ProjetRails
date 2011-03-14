@@ -18,8 +18,10 @@ class QuestionnairesController < ApplicationController
 
   def new
       @questionnaire = Questionnaire.new
-      @category = Category.find(params[:cat])
-	@title = "Nouveau questionnaire"
+      if params[:cat] 
+	@category = Category.find(params[:cat])
+      end
+      @title = "Nouveau questionnaire"
 
   end
 
@@ -28,7 +30,7 @@ class QuestionnairesController < ApplicationController
   end
 
   def create
-    @category = Category.find(params[:questionnaire][:category])
+    @category = Category.find(params[:questionnaire][:category_id])
     
     @questionnaire = @category.questionnaires.new
     @questionnaire.title = params[:questionnaire][:title]

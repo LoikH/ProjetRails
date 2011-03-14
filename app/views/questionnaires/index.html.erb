@@ -22,6 +22,11 @@
 </table>
 
 <br />
+
+<% else %>
+	Aucun questionnaire.
 <% end %>
+
+<br /><br />
 
 <%= link_to_if(session_admin?, 'Nouveau questionnaire', new_questionnaire_path) do end %>

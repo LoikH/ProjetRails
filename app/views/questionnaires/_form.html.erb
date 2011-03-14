@@ -12,13 +12,23 @@
   <% end %>
 
 
+<% if @category %>
+
   <div class="field">
     Catégorie : <%= @category.name%>
   </div>
+  <div class="field">
+    <%= f.hidden_field(:category_id, :value => @category.id) %>
+  </div>
+
+<% else %>
 
   <div class="field">
-    <%= f.hidden_field(:category, :value => @category.id) %>
+  <%= f.label :category_id, "Catégories :" %><br />
+  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
   </div>
+
+<% end %>
 
   <div class="field">
     <%= f.label :title, "Titre :" %><br />
