@@ -4,8 +4,10 @@
     <th>Nom</th>
     <th>Popularité</th>
     <th>Questionnaires</th>
-    <th></th> 
-    <% if session_admin? %> <th></th> <% end %>
+    <% if session_admin? %>
+  	  <th></th> 
+	 <th></th> 
+    <% end %>
   </tr>
 
 <% @categories.each do |category| %>
@@ -13,18 +15,20 @@
     <td><%= link_to category.name, category %></td>
     <td><%= category.popularity %></td>
     <td><%= category.questionnaires.count %></td>
-    <td><%= link_to 'Nouveau questionnaire', :controller => "questionnaires", :action => "new", :cat => category %></td>
-    <% if session_admin? %> <td><%= link_to 'Supprimer', category, :confirm => 'Etes vous sur ?', :method => :delete %></td> <% end %>
+    <% if session_admin? %>
+   	 <td><%= link_to 'Nouveau questionnaire', :controller => "questionnaires", :action => "new", :cat => category %></td>
+	 <td><%= link_to 'Supprimer', category, :confirm => 'Etes vous sur ?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
+
 </table>
 
 <br />
 
 <% else %>
 	Aucune catégorie.
+	<br /><br />
 <% end %>
-
-<br /><br />
 
 <%= link_to_if(session_admin?, 'Nouvelle Categorie', new_category_path) do end %>

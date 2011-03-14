@@ -1,32 +1,39 @@
-<p>
-  <b>Titre :</b>
-  <%= @questionnaire.title %>
-</p>
+<span class="marge"><b>Popularite :</b> <%= @questionnaire.popularity %> </span>
+<span class="marge"><b>Difficulté :</b> <%= @questionnaire.difficulty %> </span>
+<span class="marge"><b>Coût :</b> <%= @questionnaire.cost %> </span>
+<span class="marge"><b>Questions :</b> <%= @questionnaire.questions.count %> </span>
+<span class="marge"><b>Points à gagner :</b> <%= 0 %> </span>
 
-<p>
-  <b>Popularite :</b>
-  <%= @questionnaire.popularity %>
-</p>
+<br/> <br/>
 
-<p>
-  <b>Difficulté :</b>
-  <%= @questionnaire.difficulty %>
-</p>
+<% if @questionnaire.questions.count !=0 %>
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Nombre de points</th>
+	<th></th>
+  </tr>
 
-<p>
-  <b>Coût :</b>
-  <%= @questionnaire.cost %>
-</p>
+<% @questionnaire.questions.each do |question| %>
+  <tr>
+    <td><%= link_to question.title, question %></td>
+    <td><%= question.points %></td>
+    <td><%= link_to 'Supprimer', question, :confirm => 'Etes vous sur ?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
 
-<p>
-  <b>Questions :</b>
-  <%= 0 %>
-</p>
+<br />
 
-<p>
-  <b>Points à gagner</b>
-  <%= 0 %>
-</p>
+<% else %>
+	Aucune question.
+<% end %>
 
-<%= link_to 'Editer', edit_questionnaire_path(@questionnaire) %>
-<%= link_to 'Supprimer', @questionnaire, :confirm => 'Etes-vous sûr?', :method => :delete %>
+<br/> <br/>
+
+<% if session_admin? %>
+<%= link_to 'Ajouter une question', :controller => "questions", :action => "new", :quizz => @questionnaire %> |
+<%= link_to 'Editer', edit_questionnaire_path(@questionnaire) %> |
+<%= link_to 'Supprimer', @questionnaire, :confirm => 'Etes-vous sûr?', :method => :delete%>
+<% end %>
+

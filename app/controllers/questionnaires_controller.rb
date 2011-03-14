@@ -46,7 +46,7 @@ before_filter :get_auth, :only => [:new, :edit, :destroy]
 
   def show
     @questionnaire = Questionnaire.find(params[:id])
-    @title = "Questionnaire n°" + @questionnaire.id.to_s()
+    @title = @questionnaire.title
   end
 
   def new
@@ -60,6 +60,7 @@ before_filter :get_auth, :only => [:new, :edit, :destroy]
 
   def edit
     @questionnaire = Questionnaire.find(params[:id])
+    @title = "Editer le questionnaire #{@questionnaire.title}"
   end
 
   def create

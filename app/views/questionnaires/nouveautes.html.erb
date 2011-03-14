@@ -1,7 +1,7 @@
 <% if @nouveautes.count !=0 %>
 <table>
   <tr>
-    <th>Titre</th>
+    <th>Questionnaire</th>
     <th>Popularité</th>
     <th>Difficulté</th>
     <th>Coût</th>
@@ -15,7 +15,7 @@
     <td><%= questionnaire.popularity %></td>
     <td><%= questionnaire.difficulty %></td>
     <td><%= questionnaire.cost %></td>
-    <td><%= 0 %></td>
+    <td><%= questionnaire.questions.count %></td>
     <td><%= 0 %></td>
   </tr>
 <% end %>
