@@ -10,4 +10,11 @@ class PagesController < ApplicationController
 	@title = "Contact"
   end
 
+  def top10
+    @title = "Top 10"
+    @categories = Category.order(:popularity).limit(10)
+    @questionnaires = Questionnaire.order(:popularity).limit(10)
+    @utilisateurs = User.order(:score).limit(10)
+  end
+
 end

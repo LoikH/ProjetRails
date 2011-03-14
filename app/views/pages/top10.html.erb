@@ -1,0 +1,80 @@
+<h2>Top 10 des catégories</h2>
+
+<% if @categories.count !=0 %>
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Popularité</th>
+    <th>Questionnaires</th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= link_to category.name, category %></td>
+    <td><%= category.popularity %></td>
+    <td><%= category.questionnaires.count %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% else %>
+	Aucune catégorie.
+<% end %>
+
+
+<h2>Top 10 des questionnaires</h2>
+
+<% if @questionnaires.count !=0 %>
+<table>
+  <tr>
+    <th>Titre</th>
+    <th>Popularité</th>
+    <th>Difficulté</th>
+    <th>Coût</th>
+    <th>Questions</th>
+    <th>Points à gagner</th>
+  </tr>
+
+<% @questionnaires.each do |questionnaire| %>
+  <tr>
+    <td><%= link_to questionnaire.title, questionnaire %></td>
+    <td><%= questionnaire.popularity %></td>
+    <td><%= questionnaire.difficulty %></td>
+    <td><%= questionnaire.cost %></td>
+    <td><%= 0 %></td>
+    <td><%= 0 %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% else %>
+	Aucun questionnaire.
+<% end %>
+
+
+<h2>Top 10 des utilisateurs</h2>
+
+<% if @utilisateurs.count !=0 %>
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Score</th>
+  </tr>
+
+<% @utilisateurs.each do |user| %>
+  <tr>
+    <td><%= user.name%></td>
+    <td><%= user.score %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% else %>
+	Aucun utilisateur.
+<% end %>

@@ -12,7 +12,7 @@
   <tr>
     <td><%= link_to category.name, category %></td>
     <td><%= category.popularity %></td>
-    <td><%= category.nb_mcq %></td>
+    <td><%= category.questionnaires.count %></td>
     <td><%= link_to 'Nouveau questionnaire', :controller => "questionnaires", :action => "new", :cat => category %></td>
     <% if session_admin? %> <td><%= link_to 'Supprimer', category, :confirm => 'Etes vous sur ?', :method => :delete %></td> <% end %>
   </tr>
