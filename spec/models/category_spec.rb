@@ -25,14 +25,6 @@ describe Category do
     category.should be_valid
   end
 
-  it "should reject wrong type of name" do
-    wrong_names = ["1cat" "example" "EXAMPLE"]
-    wrong_names.each do |name|
-      category = Category.new @attr.merge(:name => name)
-      category.should_not be_valid
-    end
-  end
-
   it "should not have two same names" do
     cat1 = Category.create @attr
     cat2 = Category.new @attr
