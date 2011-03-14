@@ -70,7 +70,7 @@ before_filter :get_auth, :only => [:new, :edit, :destroy]
     @questionnaire.title = params[:questionnaire][:title]
     @questionnaire.difficulty = params[:questionnaire][:difficulty]
     @questionnaire.popularity = 0
-    @questionnaire.cost = 0
+    @questionnaire.cost = params[:questionnaire][:cost]
     @questionnaire.point = 0
 
 
