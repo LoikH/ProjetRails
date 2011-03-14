@@ -3,6 +3,25 @@
 
 class QuestionnairesController < ApplicationController
 
+  before_filter :get_auth, :only => [:new, :edit, :destroy]
+
+
+  def get_auth
+    user = session[:user]
+    
+    if user.nil? then
+      flash[:error] = "Connexion requise pour continuer !"
+      redirect_to signin_path
+      return 
+    end
+    if not session_admin?
+      flash[:error] = "Vous ne pouvez pas continuer, vous n'êtes pas admin !"
+      redirect_to root_path
+      return
+    end
+  end
+
+
   def index
     @questionnaires = Questionnaire.all
     @title= "Liste des questionnaires"

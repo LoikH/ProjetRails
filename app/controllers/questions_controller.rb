@@ -12,10 +12,10 @@ class QuestionsController < ApplicationController
       return 
     end
     if not session_admin?
-		flash[:error] = "Vous ne pouvez pas continuer, vous n'êtes pas admin !"
-		redirect_to root_path
-		return
-      end
+      flash[:error] = "Vous ne pouvez pas continuer, vous n'êtes pas admin !"
+      redirect_to root_path
+      return
+    end
   end
 
 def index
@@ -30,16 +30,23 @@ def index
 
   def new
     @question = Question.new
-	@title = "Nouvelle question"
+    if params[:quizz] 
+      @questionnaire = Questionnaire.find(params[:quizz])
+    end
+    @title = "Nouvelle question"
   end
 
   def edit
     @question = Question.find(params[:id])
-	@title = "Editer une question"
+    @title = "Editer une question"
   end
 
   def create
-    @question = Question.new(params[:question])
+    @questionnaire = Questionnaire.find(params[:question][:questionnaire_id])
+    @question = @questionnaire.questions.new
+    
+    @question.title = params[:question][:title]
+    @question.points = params[:question][:points]
 
     respond_to do |format|
       if @question.save

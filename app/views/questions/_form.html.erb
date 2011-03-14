@@ -11,6 +11,25 @@
     </div>
   <% end %>
 
+<% if @questionnaire %>
+
+  <div class="field">
+    Questionnaire : <%= @questionnaire.title%>
+  </div>
+  <div class="field">
+    <%= f.hidden_field(:questionnaire_id, :value => @questionnaire.id) %>
+  </div>
+
+<% else %>
+
+  <div class="field">
+  <%= f.label :questionnaire_id, "Questionnaires :" %><br />
+  <%= f.collection_select(:questionnaire_id, Questionnaire.all, :id, :title) %>
+  </div>
+
+<% end %>
+
+
   <div class="field">
     <%= f.label :title, "Question :" %><br />
     <%= f.text_field :title %>
@@ -19,6 +38,7 @@
     <%= f.label :points, "Nombre de points :" %><br />
     <%= f.text_field :points %>
   </div>
+
   <div class="actions">
     <%= f.submit "Valider" %>
   </div>
