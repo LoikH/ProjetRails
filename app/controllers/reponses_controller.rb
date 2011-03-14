@@ -30,6 +30,10 @@ def index
 
   def new
     @reponse = Reponse.new
+    if params[:quest] 
+      @question = Question.find(params[:quest])
+    end
+
 	@title = "Nouvelle réponse"
   end
 
@@ -39,7 +43,10 @@ def index
   end
 
   def create
-    @reponse = Reponse.new(params[:reponse])
+    @question = Question.find(params[:reponse][:question_id])
+    @reponse = @question.reponses.new
+    
+    @reponse.title = params[:reponse][:title]
 
     if params[:reponse][:correct]=="1" then
       @reponse.correct = true
