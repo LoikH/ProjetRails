@@ -44,13 +44,17 @@ describe QuestionnairesController do
   describe "Questionnaire creation success" do
 
     it "should create a questionnaire" do
+      #we need a category to create a questionnaire
+      Category.create(:name => "example")
       lambda do
-        post :create, :questionnaire => @attr
+        post :create, :questionnaire => @attr.merge(:category_id =>1)
       end.should change(Questionnaire, :count).by(1)
     end
 
     it "should be redirected to the questionnaire" do
-      post :create, :questionnaire => @attr
+      #we need a category to create a questionnaire
+      Category.create(:name => "example")
+      post :create, :questionnaire => @attr.merge(:category_id => 1)
       response.should redirect_to(questionnaire_path(assigns(:questionnaire)))
     end
   end
