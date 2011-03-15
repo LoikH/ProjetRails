@@ -8,4 +8,5 @@
   <%= @question.points %>
 </p>
 
+<%= link_to 'Ajouter une réponse', :controller => "reponses", :action => "new", :quest => @question %> |
 <%= link_to 'Editer', edit_question_path(@question) %>

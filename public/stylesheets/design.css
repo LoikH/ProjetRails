@@ -21,8 +21,8 @@ min-height:30px;
 }
 
 a.lienmenu, a.lienmenu:visited, a.lienmenu:hover{
-font-weight:normal;
-color:#00c9e0;
+font-weight:bold;
+color:white;
 text-decoration:none;
 background-color:transparent;
 line-height:26px;
@@ -45,7 +45,7 @@ background-image:url('../images/menu_hover.png');
 
 #contenu{
 width:794px;
-color:#00c9e0;
+color:white;
 }
 
 #haut{
@@ -57,6 +57,7 @@ font-size:18pt;
 font-family:"Century Schoolbook L";
 font-weight:bold;
 font-style:italic;
+color:#BA33BA;
 }
 
 #trait{
@@ -144,10 +145,18 @@ border: 1px solid #F00;
 }
 
 td{
-width : 120px;
+min-width:120px;
+}
+
+th{
+color:#00c9e0;
 }
 
 .marge {
 margin-right: 20px;
 }
 
+.bonnerep{
+border: 1px solid #0F0; 
+background-color: #006600; 
+}
