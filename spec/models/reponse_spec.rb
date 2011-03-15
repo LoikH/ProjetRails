@@ -4,7 +4,7 @@ describe Reponse do
   before :each do
     @attr = { :title => "Example", :correct => false}
     @c =  Category.create({ :name => "Example", :popularity => 0})
-    @q = @c.questionnaires.create( { :title => "Mon questionnaire", :difficulty => 0, :popularity => 0, :cost => 0, :nb_questions => 0, :point => 0 })
+    @q = @c.questionnaires.create( { :title => "Mon questionnaire", :difficulty => 0, :popularity => 0, :cost => 0, :point => 0 })
     @quest = @q.questions.create( { :title => "Example", :points => 2})
   end
 

@@ -4,7 +4,7 @@ describe Question do
   before :each do
     @attr = { :title => "Example", :points => 2}
     @c =  Category.create({ :name => "Example", :popularity => 0})
-    @q = @c.questionnaires.create( { :title => "Mon questionnaire", :difficulty => 0, :popularity => 0, :cost => 0, :nb_questions => 0, :point => 0 })
+    @q = @c.questionnaires.create( { :title => "Mon questionnaire", :difficulty => 0, :popularity => 0, :cost => 0, :point => 0 })
     
   end
 
