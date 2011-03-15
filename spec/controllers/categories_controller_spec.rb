@@ -3,7 +3,7 @@ require 'spec_helper'
 describe CategoriesController do
 
   before :each do
-    @attr = { :name => "Example", :popularity => 0, :nb_mcq => 0}
+    @attr = { :name => "Example", :popularity => 0}
   end
 
   describe "get index" do

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Category do
   before :each do
-    @attr = { :name => "Example", :popularity => 0, :nb_mcq => 0}
+    @attr = { :name => "Example", :popularity => 0}
   end
 
   it "should require a name" do
@@ -12,11 +12,6 @@ describe Category do
 
   it "should require a popularity" do
     category = Category.new @attr.merge(:popularity => nil)
-    category.should_not be_valid
-  end
-
-  it "should require a number of questionnaire" do
-    category = Category.new @attr.merge(:nb_mcq => nil)
     category.should_not be_valid
   end
 

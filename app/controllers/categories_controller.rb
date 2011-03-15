@@ -13,18 +13,17 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-	@title = "Nouvelle catégorie"
+    @title = "Nouvelle catégorie"
   end
 
   def edit
     @category = Category.find(params[:id])
-	@title = "Editer une catégorie"
+    @title = "Editer une catégorie"
   end
 
   def create
     @category = Category.new(params[:category])
     @category.popularity = 0
-    @category.nb_mcq = 0
 
     respond_to do |format|
       if @category.save

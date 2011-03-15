@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Questionnaire do
   before :each do
     @attr = { :title => "Mon questionnaire", :difficulty => 0, :popularity => 0, :cost => 0, :nb_questions => 0, :point => 0, }
-    @cat = Category.create({ :name => "Example", :popularity => 0, :nb_mcq => 0})
+    @cat = Category.create({ :name => "Example", :popularity => 0})
   end
 
   it "should require a category" do
