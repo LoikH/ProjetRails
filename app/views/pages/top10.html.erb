@@ -39,7 +39,7 @@
 
 <% @questionnaires.each do |questionnaire| %>
   <tr>
-    <td><%= link_to questionnaire.title, questionnaire %></td>
+    <td><%= link_to_if(session[:user], questionnaire.title, questionnaire) do questionnaire.title end %></td>
     <td><%= questionnaire.popularity %></td>
     <td><%= questionnaire.difficulty %></td>
     <td><%= questionnaire.cost %></td>

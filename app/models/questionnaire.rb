@@ -4,7 +4,8 @@
 class Questionnaire < ActiveRecord::Base
 
   belongs_to :category
-  has_many :questions
+  has_many :questions, :dependent => :destroy
+  accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:title].blank? }, :allow_destroy => true
   
   validates_presence_of :category, :message => "Le questionnaire doit appartenir à une catégorie"
   validates_presence_of :title, :message => "Titre obligatoire"

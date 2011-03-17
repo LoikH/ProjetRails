@@ -45,6 +45,11 @@
     <%= f.text_field :cost %>
   </div>
 
+  <%= f.fields_for :questions do |builder| %>  
+     <%= render 'question_fields', :f => builder %>    
+  <% end %>  
+  <p><%= link_to_add_fields "Ajouter une question", f, :questions %>  
+
   <div class="actions">
     <%= f.submit "Valider" %>
   </div>

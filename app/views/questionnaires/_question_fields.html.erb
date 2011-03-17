@@ -1,0 +1,14 @@
+<div class="fields">  
+  <p>  
+    <%= f.label :title, "Question" %>  
+    <%= link_to_remove_fields "Supprimer", f%><br />   
+    <%= f.text_area :title, :rows => 3 %><br />  
+    <%= f.label :points, "Nombre de points :" %><br />
+    <%= f.text_field :points %>  
+  </p>  
+ 
+  <%= f.fields_for :reponses do |builder| %>  
+     <%= render 'reponse_fields', :f => builder %>  
+  <% end %>  
+  <p><%= link_to_add_fields "Ajouter une réponse", f, :reponses %></p>     
+</div> 

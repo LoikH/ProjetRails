@@ -26,3 +26,11 @@
 <% else %>
 	Aucun questionnaire.
 <% end %>
+
+<br/> <br/>
+
+<% if session_admin? %>
+<%= link_to 'Ajouter un questionnaire', :controller => "questionnaires", :action => "new", :cat => @category %> |
+<%= link_to 'Editer', edit_category_path(@category) %> ou
+<%= link_to 'Supprimer la catégorie', @category, :confirm => 'Etes vous sur ?', :method => :delete %>
+<% end %>

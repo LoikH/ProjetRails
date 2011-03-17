@@ -145,7 +145,8 @@ border: 1px solid #F00;
 }
 
 td{
-min-width:120px;
+min-width:100px;
+padding:5px;
 }
 
 th{
