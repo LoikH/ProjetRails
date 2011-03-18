@@ -54,9 +54,10 @@ before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
     @questionnaire.cost = params[:questionnaire][:cost]
     @questionnaire.point = 0
 
+    @questionnaire.save
 
     respond_to do |format|
-      if @questionnaire.save
+      if @questionnaire.update_attributes(params[:questionnaire])
         format.html { redirect_to(@questionnaire, :notice => 'Le questionnaire a été ajouté avec succès.') }
         format.xml  { render :xml => @questionnaire, :status => :created, :location => @questionnaire }
       else

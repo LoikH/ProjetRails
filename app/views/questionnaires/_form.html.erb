@@ -11,44 +11,41 @@
     </div>
   <% end %>
 
+ <table>
 
-<% if @category %>
+  <tr class="field">
+	<% if @category %>
+    	     <td> Catégorie : </td> <td> <%= @category.name%> </td>
+             <%= f.hidden_field(:category_id, :value => @category.id) %>
+       <% else %>
+            <td> <%= f.label :category_id, "Catégories :" %> </td>
+            <td> <%= f.collection_select(:category_id, Category.all, :id, :name) %> </td>
+      <% end %>
+  </tr>
 
-  <div class="field">
-    Catégorie : <%= @category.name%>
-  </div>
-  <div class="field">
-    <%= f.hidden_field(:category_id, :value => @category.id) %>
-  </div>
+  <tr class="field">
+    <td> <%= f.label :title, "Titre :" %> </td>
+    <td> <%= f.text_field :title %> </td>
+  </tr>
 
-<% else %>
+  <tr class="field">
+    <td> <%= f.label :difficulty, "Difficulté :" %> </td>
+    <td> <%= f.text_field :difficulty %> </td>
+  </tr>
 
-  <div class="field">
-  <%= f.label :category_id, "Catégories :" %><br />
-  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
-  </div>
+  <tr class="field">
+    <td> <%= f.label :cost, "Coût :" %> </td>
+    <td> <%= f.text_field :cost %> </td>
+  </tr>
 
-<% end %>
+ </table>
 
-  <div class="field">
-    <%= f.label :title, "Titre :" %><br />
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :difficulty, "Difficulté :" %><br />
-    <%= f.text_field :difficulty %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cost, "Coût :" %><br />
-    <%= f.text_field :cost %>
-  </div>
-
-  <%= f.fields_for :questions do |builder| %>  
-     <%= render 'question_fields', :f => builder %>    
-  <% end %>  
-  <p><%= link_to_add_fields "Ajouter une question", f, :questions %>  
+ <div class="field">
+   <%= f.fields_for :questions do |builder| %>  
+      <%= render 'question_fields', :f => builder %>    
+   <% end %>  
+   <%= link_to_add_fields "Ajouter une question", f, :questions %>  
+ </div>
 
   <div class="actions">
     <%= f.submit "Valider" %>

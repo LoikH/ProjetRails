@@ -1,14 +1,15 @@
 <div class="fields">  
-  <p>  
-    <%= f.label :title, "Question" %>  
-    <%= link_to_remove_fields "Supprimer", f%><br />   
-    <%= f.text_area :title, :rows => 3 %><br />  
-    <%= f.label :points, "Nombre de points :" %><br />
-    <%= f.text_field :points %>  
-  </p>  
+   <div class="titrequestion">
+    <%= f.label :title, "Question", "class" => "marge" %>
+    <%= f.label :points, "Nombre de points :" %>  <%= f.text_field :points, "size" => 4, "class" => "marge" %>
+    <%= link_to_remove_fields "Supprimer", f%>
+   </div>
+    <%= f.text_area :title, :rows => 2, :cols => "80" %>   
  
+ <div class="field">
   <%= f.fields_for :reponses do |builder| %>  
      <%= render 'reponse_fields', :f => builder %>  
   <% end %>  
-  <p><%= link_to_add_fields "Ajouter une réponse", f, :reponses %></p>     
+  <br/><%= link_to_add_fields "Ajouter une réponse", f, :reponses %> 
+ </div>   
 </div> 
