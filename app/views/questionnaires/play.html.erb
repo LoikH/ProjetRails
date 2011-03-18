@@ -3,37 +3,48 @@
 <span class="marge"><b>Coût :</b> <%= @questionnaire.cost %> </span>
 <span class="marge"><b>Questions :</b> <%= @questionnaire.questions.count %> </span>
 <span class="marge"><b>Points à gagner :</b> <%= 0 %> </span>
-
 <br/> <br/>
 
-<% if @questionnaire.questions.count !=0 %>
-<% @questionnaire.questions.each do |question| %>
-<table>
- 
-  <tr> 
-    <th colspan="2">Question n° <%= question.id %> </th> 
-  </tr>
+<% i = 0 %>
 
-  <tr>
-    <td><%= question.title %></td>
-    <td rowspan="2"><%= question.points %> pts</td>
-  </tr>
-  
-   <tr>
-     <td>
-        <% question.reponses.each do |reponse| %>
-          <% if reponse.correct %>
-	      <div class="bonnerep"> <%= reponse.title %> </div>
-          <% else %>
-              <%= reponse.title %>
-          <% end %>
-        <% end %>
-     </td>
-  </tr>
+<% if @questionnaire.questions.count !=0 %>
+
+
+
+<%= form_for :questionnaire, @questionnaire, :url=>{:action => "validate"} do |f| %>
+  <% if @questionnaire.errors.any? %>
+    <div id="error_explanation">
+      <h2>Impossible de sauvegarder :</h2>
+
+      <ul>
+      <% @questionnaire.errors.each do |attr, msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table>
+
+<%= f.fields_for :questions do |builder| %>
+    <% i = i + 1 %>
+    <tr> 
+    Question n° <%= i %>
+    </tr>
+    <%= render "play_question_fields", :f => builder %>
+  <% end %>
+
 </table>
-<% end %>
+
+  <div class="actions">
+    <%= f.submit "Valider" %>
+  </div>
 
 <br />
+
+
+<% end %>
+
 
 <% else %>
 	Aucune question.

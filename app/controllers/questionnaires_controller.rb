@@ -103,5 +103,14 @@ before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
     @nouveautes = Questionnaire.order(:created_at).limit(10)
   end
 
+  def play
+    @questionnaire = Questionnaire.find(params[:id])
+    @title = @questionnaire.title
+  end
+
+  def validate
+    puts "Validate !"
+  end
+
 
 end

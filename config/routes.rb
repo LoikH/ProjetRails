@@ -14,7 +14,12 @@ ProjetRails::Application.routes.draw do
   resources :categories
   resources :questions
   resources :reponses
-  resources :questionnaires
+  resources :questionnaires do
+    member do
+      get "play"
+      post "validate"
+    end
+  end
   resources :users
   resources :sessions, :only => [ :new, :create, :destroy ]
   match "/signin", :to => "sessions#new"
@@ -23,7 +28,6 @@ ProjetRails::Application.routes.draw do
   match "/root", :to => "pages#home"
   match "/top10", :to => "pages#top10"
   match "/nouveautes", :to => "questionnaires#nouveautes"
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

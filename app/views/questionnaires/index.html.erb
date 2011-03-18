@@ -19,6 +19,7 @@
     <td><%= 0 %></td>
     <td><%= 0 %></td>
     <td><%= link_to 'Ajouter une question', :controller => "questions", :action => "new", :quizz => questionnaire %></td>
+    <td><%= link_to 'Répondre au questionnaire', play_questionnaire_path(questionnaire)%></td>
 
   </tr>
 <% end %>

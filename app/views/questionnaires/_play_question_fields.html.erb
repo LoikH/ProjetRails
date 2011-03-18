@@ -1,0 +1,10 @@
+<div class="fields">  
+   <div class="titrequestion">
+    <%= :points %>
+   </div> 
+ <div class="field">
+  <%= f.fields_for :reponses do |builder| %>  
+     <%= render 'play_reponse_fields', :f => builder %>  
+  <% end %>  
+ </div>   
+</div> 
