@@ -25,14 +25,33 @@
   <% end %>
 
 <table>
-
-<%= f.fields_for :questions do |builder| %>
+<%= f.hidden_field(:questionaire_id, :value => @questionnaire.id) %>
+<% for question in @questionnaire.questions do %>
     <% i = i + 1 %>
     <tr> 
-    Question n° <%= i %>
+    <th>Question n° <%= i %></th>
+    </tr> 
+    <tr>
+      <td><%= question.title %></td>
+      <td rowspan="2"><%= question.points %> pts</td>
     </tr>
-    <%= render "play_question_fields", :f => builder %>
+    <tr>
+      <td>
+
+    <%= f.fields_for question, :index => question do |q| %>
+    <% for reponse in question.reponses do %>
+      <%= q.fields_for reponse, :index => reponse do |r| %>
+	<div>
+	  <%= r.check_box :rep %>
+	  <%= reponse.title %>
+	</div>  
+      <% end %>
+    <% end %>
   <% end %>
+    </td>
+  </tr>
+
+<% end %>
 
 </table>
 
