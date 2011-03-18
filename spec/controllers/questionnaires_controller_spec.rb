@@ -4,9 +4,11 @@ describe QuestionnairesController do
 
   before :each do
     @attr = { :title => "Mon questionnaire", :difficulty => 0, :popularity => 0, :cost => 0, :point => 0 } 
-    @cat = Category.create({ :name => "Example", :popularity => 0}
-)
-
+    @cat = Category.create({ :name => "Example", :popularity => 0})
+	@qaire = @cat.questionnaires.create @attr
+    #On fait nos test en tant qu'admin
+    u = User.create(:name => "admin", :email => "admin@a.com", :password => "admin", :admin => true)
+    session[:user] = u
   end
 
   describe "get index" do
@@ -18,8 +20,6 @@ describe QuestionnairesController do
 
   describe "get show" do
     it "should be able to see a questionnaire" do
-      #we create a questionnaire to see it
-      @cat.questionnaires.create @attr
       get :show, :id =>1
       response.should be_success
     end
@@ -34,8 +34,6 @@ describe QuestionnairesController do
 
   describe "get edit" do
     it "should have a successful response" do
-      #we create a questionnaire to edit it
-      @cat.questionnaires.create @attr
       get :edit, :id =>1
       response.should be_success
     end
@@ -44,45 +42,32 @@ describe QuestionnairesController do
   describe "Questionnaire creation success" do
 
     it "should create a questionnaire" do
-      #we need a category to create a questionnaire
-      Category.create(:name => "example")
       lambda do
         post :create, :questionnaire => @attr.merge(:category_id =>1)
       end.should change(Questionnaire, :count).by(1)
     end
 
     it "should be redirected to the questionnaire" do
-      #we need a category to create a questionnaire
-      Category.create(:name => "example")
       post :create, :questionnaire => @attr.merge(:category_id => 1)
       response.should redirect_to(questionnaire_path(assigns(:questionnaire)))
     end
   end
 
   describe "Questionnaire update success" do
-    before :each do
-      #we create a questionnaire to edit it
-      @cat.questionnaires.create @attr
-    end
 
     it "should edit a questionnaire" do
-      #TODO !!!
+      post :update, :id =>1, :questionnaire=>{:title=>"new"}
+      @qaire.reload
+      @qaire.title.should  == "new"
     end
 
     it "should be redirected to the questionnaire" do
-      #we create an other one to edit the first one with
-      c = @cat.questionnaires.new
-      c.title = "new"
-      post :update, :id =>1, :questionnaire => c
+      post :update, :id =>1, :questionnaire => {:title=>"new"}
       response.should redirect_to(questionnaire_path(assigns(:questionnaire)))
     end
   end
 
   describe "Questionnaire destroy success" do
-    before :each do
-      #we create a questionnaire to destroy it
-      @cat.questionnaires.create @attr
-    end
 
     it "should destroy a questionnaire" do
       lambda do

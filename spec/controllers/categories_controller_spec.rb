@@ -4,6 +4,10 @@ describe CategoriesController do
 
   before :each do
     @attr = { :name => "Example", :popularity => 0}
+	@cat = Category.create @attr
+    #On fait nos test en tant qu'admin
+    u = User.create(:name => "admin", :email => "admin@a.com", :password => "admin", :admin => true)
+    session[:user] = u
   end
 
   describe "get index" do
@@ -15,8 +19,6 @@ describe CategoriesController do
 
   describe "get show" do
     it "should be able to see a category" do
-      #we create a category to see it
-      Category.create @attr
       get :show, :id =>1
       response.should be_success
     end
@@ -31,54 +33,41 @@ describe CategoriesController do
 
   describe "get edit" do
     it "should have a successful response" do
-      #we create a category to edit it
-      Category.create @attr
       get :edit, :id =>1
       response.should be_success
     end
   end
 
   describe "Category creation success" do
-    before :each do
-      @attr = {:name => "Example"}
-    end
 
     it "should create a category" do
       lambda do
-        post :create, :category => @attr
+        post :create, :category => {:name => "Other Example"}
         end.should change(Category, :count).by(1)
     end
 
     it "should be redirected to the category" do
-      post :create, :category => @attr
+      post :create, :category => {:name => "Other Example"}
       response.should redirect_to(category_path(assigns(:category)))
     end
   end
 
   describe "Category update success" do
-    before :each do
-      #we create a category to edit it
-      Category.create @attr
-    end
 
-    it "should edit a category" do
-      #TODO !!!
+    it "should update a category" do
+      post :update, :id =>1, :category=>{:name=>"new"}
+      @cat.reload
+      @cat.name.should  == "new"
     end
 
     it "should be redirected to the category" do
       #we create an other one to edit the first one with
-      c = Category.new
-      c.name = "new"
-      post :update, :id =>1, :category => c
+      post :update, :id =>1, :category=>{:name=>"new"}
       response.should redirect_to(category_path(assigns(:category)))
     end
   end
 
   describe "Category destroy success" do
-    before :each do
-      #we create a category to destroy it
-      Category.create @attr
-    end
 
     it "should destroy a category" do
       lambda do

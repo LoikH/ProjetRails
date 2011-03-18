@@ -55,7 +55,6 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-
     respond_to do |format|
       if @category.update_attributes(params[:category])
         format.html { redirect_to(@category, :notice => 'La catégorie a été mise à jour avec succès.') }
