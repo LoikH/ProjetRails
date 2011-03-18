@@ -1,7 +1,9 @@
-<p class="fields">
-  <%= f.label :title, "Réponse" %>
+<div class="fields">
+  <div class="titrereponse">
+    <%= f.label :title, "Réponse", "class" => "marge" %>
+    <%= f.label :correct, "Correcte ?" %> <%= f.check_box :correct, "class" => "marge" %>
+    <%= link_to_remove_fields "Supprimer", f %>
+  </div>
   <%= f.text_field :title %>
-  <%= f.label :correct, "Correcte ?" %>
-  <%= f.check_box :correct %><br />
-  <%= link_to_remove_fields "Supprimer", f %>
-</p>
+
+</div>

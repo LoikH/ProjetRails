@@ -161,3 +161,18 @@ margin-right: 20px;
 border: 1px solid #0F0; 
 background-color: #006600; 
 }
+
+.titrequestion{
+margin-top:20px;
+margin-bottom:10px;
+border : 4px gray solid;
+text-align:center;
+}
+
+.titrereponse{
+width:400px;
+margin-top:20px;
+margin-bottom:10px;
+border : 4px lightgray solid;
+text-align:center;
+}
