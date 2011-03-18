@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     end
   end
 
-def index
+  def index
     @questions = Question.all
     @title= "Liste des questions"
   end

@@ -1,23 +1,22 @@
 # -*- coding: utf-8 -*-
 
-
 class QuestionnairesController < ApplicationController
- 
+
 before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
 
   def get_auth
     user = session[:user]
-    
+
     if user.nil? then
       flash[:error] = "Connexion requise pour continuer !"
       redirect_to signin_path
-      return 
+      return
     end
     if not session_admin?
-		flash[:error] = "Vous ne pouvez pas continuer, vous n'êtes pas admin !"
-		redirect_to root_path
-		return
-      end
+      flash[:error] = "Vous ne pouvez pas continuer, vous n'êtes pas admin !"
+      redirect_to root_path
+      return
+    end
   end
 
   def index
@@ -31,12 +30,11 @@ before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
   end
 
   def new
-      @questionnaire = Questionnaire.new
-      if params[:cat] 
-	@category = Category.find(params[:cat])
-      end
-      @title = "Nouveau questionnaire"
-
+    @questionnaire = Questionnaire.new
+    if params[:cat]
+      @category = Category.find(params[:cat])
+    end
+    @title = "Nouveau questionnaire"
   end
 
   def edit
@@ -46,7 +44,7 @@ before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
 
   def create
     @category = Category.find(params[:questionnaire][:category_id])
-    
+
     @questionnaire = @category.questionnaires.new
     @questionnaire.title = params[:questionnaire][:title]
     @questionnaire.difficulty = params[:questionnaire][:difficulty]
