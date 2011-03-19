@@ -7,11 +7,13 @@
 <br/> <br/>
 
 <% if @questionnaire.questions.count !=0 %>
+<% i = 0 %>
 <% @questionnaire.questions.each do |question| %>
+<% i = i + 1 %>
 <table>
  
   <tr> 
-    <th colspan="2">Question n° <%= question.id %> </th> 
+    <th colspan="2">Question n° <%= i %> </th> 
   </tr>
 
   <tr>

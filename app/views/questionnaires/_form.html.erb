@@ -40,14 +40,19 @@
 
  </table>
 
+ <% @i = 0 %>
  <div class="fields">
    <%= f.fields_for :questions do |builder| %>  
       <%= render 'question_fields', :f => builder %>    
    <% end %>  
-  <br/> <%= link_to_add_fields "Ajouter une question", f, :questions %>  
  </div>
 
-  <div class="actions">
-    <br/> <%= f.submit "Valider" %>
-  </div>
+ <div class="fields">
+    <br/> <%= link_to_add_fields "Ajouter une question", f, :questions %>  
+ </div>
+
+ <div class="actions">
+   <br/> <%= f.submit "Valider" %>
+ </div>
+
 <% end %>

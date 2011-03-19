@@ -1,6 +1,8 @@
+<% @i = @i + 1 %>
+
 <div class="fields">  
    <div class="titrequestion">
-    <%= f.label :title, "Question", "class" => "marge" %>
+    <%= f.label :title, "Question n°#{@i}", "class" => "marge" %>
     <%= f.label :points, "Nombre de points :" %>  <%= f.text_field :points, "size" => 4, "class" => "marge" %>
     <%= link_to_remove_fields "Supprimer", f%>
    </div>
@@ -10,6 +12,10 @@
   <%= f.fields_for :reponses do |builder| %>  
      <%= render 'reponse_fields', :f => builder %>  
   <% end %>  
+ </div>
+
+ <div class="fields">
   <br/><%= link_to_add_fields "Ajouter une réponse", f, :reponses %> 
- </div>   
+ </div>
+    
 </div> 
