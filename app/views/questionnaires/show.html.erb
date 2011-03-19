@@ -2,7 +2,7 @@
 <span class="marge"><b>Difficulté :</b> <%= @questionnaire.difficulty %> </span>
 <span class="marge"><b>Coût :</b> <%= @questionnaire.cost %> </span>
 <span class="marge"><b>Questions :</b> <%= @questionnaire.questions.count %> </span>
-<span class="marge"><b>Points à gagner :</b> <%= 0 %> </span>
+<span class="marge"><b>Points à gagner :</b> <%= @questionnaire.questions.sum(:points) %> </span>
 
 <br/> <br/>
 
@@ -15,7 +15,7 @@
   </tr>
 
   <tr>
-    <td><%= question.title %></td>
+    <td width="600"><%= question.title %></td>
     <td rowspan="2"><%= question.points %> pts</td>
   </tr>
   
@@ -23,9 +23,9 @@
      <td>
         <% question.reponses.each do |reponse| %>
           <% if reponse.correct %>
-	      <div class="bonnerep"> <%= reponse.title %> </div>
+	      <div class="bonnerep"> <%= reponse.title %> <br/> </div>
           <% else %>
-              <%= reponse.title %>
+              <%= reponse.title %> <br/> 
           <% end %>
         <% end %>
      </td>

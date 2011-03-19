@@ -6,7 +6,7 @@
    </div>
     <%= f.text_area :title, :rows => 2, :cols => "80" %>   
  
- <div class="field">
+ <div class="fields">
   <%= f.fields_for :reponses do |builder| %>  
      <%= render 'reponse_fields', :f => builder %>  
   <% end %>  

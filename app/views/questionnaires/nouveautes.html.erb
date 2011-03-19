@@ -16,7 +16,7 @@
     <td><%= questionnaire.difficulty %></td>
     <td><%= questionnaire.cost %></td>
     <td><%= questionnaire.questions.count %></td>
-    <td><%= 0 %></td>
+    <td><%=  questionnaire.questions.sum(:points) %></td>
   </tr>
 <% end %>
 </table>
