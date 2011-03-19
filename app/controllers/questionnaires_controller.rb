@@ -107,7 +107,18 @@ before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
   end
 
   def validate
-    puts "Validate !"
+    @questionnaire = Questionnaire.find(params[:id])
+    for question in @questionnaire.questions do
+      for reponse in question.reponses do
+	reponse.rep = params[:questionnaire][:question][:"#{question.id}"][:reponse][:"#{reponse.id}"][:rep]	
+      end
+    end
+    
+    @res = @questionnaire.evaluate 
+    @user = session[:user]
+    score = @user.score + @res
+    @user.update_attribute :score, score
+
   end
 
 

@@ -163,6 +163,12 @@ background-color: #006600;
 display:table;
 }
 
+.mauvaiserep{
+border: 1px solid #F00; 
+background-color: #660000; 
+display:table;
+}
+
 .titrequestion{
 margin-top:20px;
 margin-bottom:10px;

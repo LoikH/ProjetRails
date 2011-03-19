@@ -15,4 +15,14 @@ class Questionnaire < ActiveRecord::Base
   validates_numericality_of :popularity, :point
   validates_numericality_of :cost, :message => "Le coût n'est pas un nombre..."
   validates_numericality_of :difficulty, :greater_than_or_equal_to => 0, :less_than => 5, :message => "La difficulté doit être comprise entre 0 et 4 compris"
+
+  def evaluate
+    points = 0
+    for question in questions do
+      points = points + question.evaluate
+    end
+    return points
+  end
+
+
 end

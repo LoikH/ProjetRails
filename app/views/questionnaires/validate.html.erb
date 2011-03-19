@@ -1,1 +1,41 @@
-toto
+<div>
+Vous avez terminé le questionnaire "<%=@questionnaire.title%>"
+<br/>
+Vous avez gagné <%=@res%> points
+<br/>
+Votre score est de <%=@user.score%> points
+</div>
+
+<% i = 0 %>
+<% @questionnaire.questions.each do |question| %>
+<% i = i + 1 %>
+<table>
+ 
+  <tr> 
+    <th colspan="2">Question n° <%= i %> </th> 
+  </tr>
+
+  <tr>
+    <td width="600"><%= question.title %></td>
+    <td rowspan="2"><%= question.points %> pts</td>
+  </tr>
+  
+   <tr>
+     <td>
+        <% question.reponses.each do |reponse| %>
+          <% if reponse.correct %>
+	      <div class="bonnerep"> <%= reponse.title %> <br/> </div>
+          <% else %>
+	      <% if reponse.rep == "1"%>
+	      <div class="mauvaiserep"> <%= reponse.title %> <br/> </div>
+	      <% else %>
+              <%= reponse.title %> <br/> 
+	    <% end %>
+          <% end %>
+	  <br\>
+        <% end %>
+     </td>
+  </tr>
+</table>
+<% end %>
+

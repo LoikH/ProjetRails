@@ -6,7 +6,7 @@ require 'digest'
 
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation, :admin
+  attr_accessible :name, :email, :score, :password, :password_confirmation, :admin
 
   validates_presence_of :name, :message => "Nom obligatoire"
   validates_length_of :name, :within => 2..30, :message => "Le nom doit avoir entre 2 et 30 caractères" 

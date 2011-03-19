@@ -25,7 +25,6 @@
   <% end %>
 
 <table>
-<%= f.hidden_field(:questionaire_id, :value => @questionnaire.id) %>
 <% for question in @questionnaire.questions do %>
     <% i = i + 1 %>
     <tr> 
@@ -38,9 +37,9 @@
     <tr>
       <td>
 
-    <%= f.fields_for question, :index => question do |q| %>
+    <%= f.fields_for question, :index => question.id do |q| %>
     <% for reponse in question.reponses do %>
-      <%= q.fields_for reponse, :index => reponse do |r| %>
+      <%= q.fields_for reponse, :index => reponse.id do |r| %>
 	<div>
 	  <%= r.check_box :rep %>
 	  <%= reponse.title %>
