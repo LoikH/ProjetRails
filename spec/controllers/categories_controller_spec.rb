@@ -5,7 +5,7 @@ describe CategoriesController do
   before :each do
     @attr = { :name => "Example", :popularity => 0}
 	@cat = Category.create @attr
-    #On fait nos test en tant qu'admin
+    #we do our tests as an admin
     u = User.create(:name => "admin", :email => "admin@a.com", :password => "admin", :admin => true)
     session[:user] = u
   end

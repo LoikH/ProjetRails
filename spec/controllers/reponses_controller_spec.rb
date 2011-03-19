@@ -5,9 +5,9 @@ describe ReponsesController do
     @attr = { :title => "Example", :correct => false}
     @cat = Category.create({ :name => "Example", :popularity => 0})
     @qaire = @cat.questionnaires.create({:title => "Mon questionnaire", :difficulty => 0, :popularity => 0, :cost => 0, :point => 0})
-	@q = @qaire.questions.create ({ :title => "Example", :points => 1})
-	@r = @q.reponses.create @attr
-	 
+    @q = @qaire.questions.create ({ :title => "Example", :points => 1})
+    @r = @q.reponses.create @attr
+
     #We do our tests as an admin
     u = User.create(:name => "admin", :email => "admin@a.com", :password => "admin", :admin => true)
     session[:user] = u
