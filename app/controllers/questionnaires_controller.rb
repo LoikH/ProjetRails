@@ -2,7 +2,7 @@
 
 class QuestionnairesController < ApplicationController
 
-before_filter :is_user, :is_admin, :only => [:new, :edit, :destroy, :show]
+before_filter :is_admin, :only => [:new, :edit, :destroy, :show]
 before_filter :is_user, :only => [:play]
 
   def is_user

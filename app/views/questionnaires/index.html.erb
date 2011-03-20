@@ -7,19 +7,18 @@
     <th>Coût</th>
     <th>Questions</th>
     <th>Points à gagner</th>
-    <th></th>
+    <th>Catégorie</th>
   </tr>
 
 <% @questionnaires.each do |questionnaire| %>
   <tr>
-    <td><%= link_to_if(session[:user], questionnaire.title, questionnaire) do questionnaire.title end %></td>
+    <td><%= link_to_if(session[:user], questionnaire.title, play_questionnaire_path(questionnaire)) do questionnaire.title end %></td>
     <td><%= questionnaire.popularity %></td>
     <td><%= questionnaire.difficulty %></td>
     <td><%= questionnaire.cost %></td>
-    <td><%= 0 %></td>
-    <td><%= 0 %></td>
-    <td><%= link_to 'Ajouter une question', :controller => "questions", :action => "new", :quizz => questionnaire %></td>
-    <td><%= link_to 'Répondre au questionnaire', play_questionnaire_path(questionnaire)%></td>
+    <td><%= questionnaire.questions.count %></td>
+    <td><%= questionnaire.questions.sum(:points) %></td>
+    <td><%= Category.find(questionnaire.category_id).name %></td>
 
   </tr>
 <% end %>
