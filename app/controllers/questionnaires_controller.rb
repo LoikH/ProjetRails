@@ -98,7 +98,7 @@ before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
 
   def nouveautes
     @title = "Liste des nouveautés"
-    @nouveautes = Questionnaire.order(:created_at).limit(10)
+    @nouveautes = Questionnaire.order(:created_at).limit(10).reverse_order
   end
 
   def play
