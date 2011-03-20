@@ -5,6 +5,10 @@ require 'digest'
 
 
 class User < ActiveRecord::Base
+
+  has_many :scorings
+  has_many :categories, :through => :scorings
+
   has_and_belongs_to_many :questionnaires
 
   attr_accessor :password
