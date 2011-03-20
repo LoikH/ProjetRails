@@ -7,6 +7,7 @@
     <th>Coût</th>
     <th>Questions</th>
     <th>Points à gagner</th>
+    <% if session_admin? %><th></th><% end %>
   </tr>
 
 <% @category.questionnaires.each do |questionnaire| %>
@@ -17,6 +18,7 @@
     <td><%= questionnaire.cost %></td>
     <td><%= questionnaire.questions.count %></td>
     <td><%= questionnaire.questions.sum(:points) %></td>
+    <% if session_admin? %> <td class="tdpetit"> <%= link_to "Voir", questionnaire %> </td> <% end %>
   </tr>
 <% end %>
 </table>

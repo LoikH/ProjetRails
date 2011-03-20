@@ -184,3 +184,7 @@ margin-bottom:10px;
 border : 4px lightgray solid;
 text-align:center;
 }
+
+td.tdpetit{
+min-width:40px;
+}
