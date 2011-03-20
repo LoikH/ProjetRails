@@ -19,11 +19,11 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :message => "Absence de mot de passe"
   validates_confirmation_of :password, :message => "Absence de la confirmation du mot de passe"
 
-  before_save :encode_password
+  before_save :encode_password 
 
   def encode_password
     self.salt = encode("#{Time.now.utc}:#{password}") if new_record?
-    self.secure_password = encode("#{salt}:#{password}")
+    self.secure_password = encode("#{salt}:#{password}") if !self.password.nil?
   end
 
   def encode(string)
