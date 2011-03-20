@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
+    @categories = Category.order(:name)
     @title= "Liste des catégories"
   end
 
