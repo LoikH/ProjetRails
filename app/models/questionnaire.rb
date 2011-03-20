@@ -3,6 +3,7 @@
 
 class Questionnaire < ActiveRecord::Base
 
+  has_and_belongs_to_many :users
   belongs_to :category
   has_many :questions, :dependent => :destroy
   accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:title].blank? }, :allow_destroy => true

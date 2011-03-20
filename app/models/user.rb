@@ -5,6 +5,8 @@ require 'digest'
 
 
 class User < ActiveRecord::Base
+  has_and_belongs_to_many :questionnaires
+
   attr_accessor :password
   attr_accessible :name, :email, :score, :password, :password_confirmation, :admin
 
