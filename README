@@ -5,6 +5,56 @@ Auteurs :
   - Hameaux Loik
   - Sauvage David
 
+Utilisationde l'interface :
+
+- Les utilisateurs
+
+[s'incrire / créer un nouvel utilisateur]
+Pour s'inscrire sur le site il suffit de cliquer sur le bouton "s'incrire", puis de renseigner les champs du formulaire et enfin valider.
+Le premier utilisateur à s'inscrire aura automatiquement les droits d'administration. Les autres utilisateurs seront considérés en tant que "joueur".
+
+[se connecter]
+Pour se connecter il faut au préalable être inscrit. Ensuite il suffit de cliquer sur le bouton "se connecter", d'entrer les champs demandés et de valider.
+
+[Voir son profil]
+Pour voir son profil il faut être connecté, puis cliquer sur le bouton "voir profil".
+
+[éditer son profil]
+Pou éditer son profil il faut être sur la page "voir profil", puis cliquer sur le lien "éditer". Ensuite il suffit de renseigner les champs et valider.
+
+
+- Les catégories
+
+! Il faut être connecté en admin pour pouvoir réaliser la suite !
+
+[créer une catégorie]
+Pour créer une catégorie il faut cliquer sur le bouton "Catégories" puis "Nouvelle catégorie". Ensuite il suffit de renseigner le champ et valider.
+
+[éditer une catégorie]
+En cliquant sur le bouton "Catégories" on accède à la liste des catégories. Il suffit donc de cliquer sur une catégorie (le lien représentant le nom) puis "Editer", renseigner le champ et valider.
+
+
+- Les questionnaires
+
+! Partie obligatoirement admin !
+
+[créer un questionnaire]
+Il suffit de cliquer sur le bouton "Catégorie" puis sur le lien "Nouveau questionnaire" correspondant à un nouveau questionnaire dans la catégorie désirée. Ensuite il suffit de remplir les champs et valider.
+Attention ! Il faut d'abord créer et valider une question avant d'ajouter ses réponses.
+
+[voir un questionnaire]
+Sur la page listant les catégories, il faut cliquer sur une catégorie (le lien correspondant au nom) puis sur le lien "Voir" correspondant au questionnaire à modifier. Le questionnaire est donc affiché avec ses réponses encadrées en vert. 
+
+[éditer un questionnaire]
+A partir de la page correspondant à l'affichage du questionnaire, il est possible de l'éditer en cliquant sur le lien "Editer". Il est de là facile de modifier sa catégorie, son titre, sa difficulté, son coût mais également ses questions et ses réponses. L'affichage étant dynamique, il est également possible d'ajouter des nouvelles questions et/ou des nouvelles réponses au questionnaire. Ensuite il suffit de valider les modifications.
+
+! Partie joueur !
+
+[Jouer à un questionnaire]
+Pour jouer à un questionnaire, il faut être au préalable connecté. Ensuite il suffit de choisir le questionnaire désiré selon la catégorie, soit en cliquant sur le bouton "Catégories" puis la catégorie désirée et enfin le questionnaire voulu, soit en sélectionnant le questionnaire dans les nouveautés (bouton "Nouveauté") par exemple. Il suffit ensuite de répondre au questionnaire en cochant face aux réponses chosies puis valider.
+
+
+
 Models :
 
 Utilisateur (login, mdp, mail, score_total, statut)
