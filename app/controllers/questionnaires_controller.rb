@@ -119,6 +119,15 @@ before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
     score = @user.score + @res
     @user.update_attribute :score, score
 
+    popularity_q = @questionnaire.popularity + 1
+    @questionnaire.update_attribute :popularity, popularity_q
+
+    category = Category.find(@questionnaire.category_id)
+    popularity_c = category.popularity + 1
+
+    category.update_attribute :popularity, popularity_c
+
+
   end
 
 
