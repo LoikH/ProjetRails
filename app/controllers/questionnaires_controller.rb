@@ -2,9 +2,10 @@
 
 class QuestionnairesController < ApplicationController
 
-before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
+before_filter :is_user, :is_admin, :only => [:new, :edit, :destroy, :show]
+before_filter :is_user, :only => [:play]
 
-  def get_auth
+  def is_user
     user = session[:user]
 
     if user.nil? then
@@ -12,6 +13,9 @@ before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
       redirect_to signin_path
       return
     end
+  end
+  
+  def is_admin
     if not session_admin?
       flash[:error] = "Vous ne pouvez pas continuer, vous n'êtes pas admin !"
       redirect_to root_path
@@ -104,6 +108,14 @@ before_filter :get_auth, :only => [:new, :edit, :destroy, :show]
   def play
     @questionnaire = Questionnaire.find(params[:id])
     @title = @questionnaire.title
+    user = session[:user]
+    if user.score < @questionnaire.cost then
+      flash[:error] = "Vous n'avez pas assez de points pour jouer à ce questionnaire"
+      cat = Category.find(@questionnaire.category_id)
+      redirect_to cat
+      return
+    end
+
   end
 
   def validate
