@@ -101,7 +101,6 @@ class UsersController < ApplicationController
       @user.admin = false
     end
 
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => "L'utilisateur a été créé avec succès !") }
@@ -117,6 +116,8 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
+    @user.password = params[:user][:password]
+
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => "L'utilisateur a été mis à jour avec succès !") }
