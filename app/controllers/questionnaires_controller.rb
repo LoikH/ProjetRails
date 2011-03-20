@@ -115,6 +115,12 @@ before_filter :is_user, :only => [:play]
       redirect_to cat
       return
     end
+    if user.questionnaires.exists?(@questionnaire.id) then
+      flash[:error] = "Vous avez déja jouer à ce questionnaire"
+      cat = Category.find(@questionnaire.category_id)
+      redirect_to cat
+      return
+    end
 
   end
 
@@ -130,7 +136,7 @@ before_filter :is_user, :only => [:play]
     @user = session[:user]
     score = @user.score + @res
     @user.update_attribute :score, score
-
+    
     popularity_q = @questionnaire.popularity + 1
     @questionnaire.update_attribute :popularity, popularity_q
 
@@ -138,6 +144,8 @@ before_filter :is_user, :only => [:play]
     popularity_c = category.popularity + 1
 
     category.update_attribute :popularity, popularity_c
+    user2 = User.find(@user.id)
+    user2.questionnaires.push(@questionnaire)
 
 
   end
