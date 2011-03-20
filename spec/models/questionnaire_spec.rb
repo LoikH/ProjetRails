@@ -77,20 +77,4 @@ describe Questionnaire do
 
   end
 
-  describe "evaluate method" do
-
-    it "should return 0 when there is no question" do
-      questionnaire = @cat.questionnaires.new @attr
-      questionnaire.evaluate.should == 0
-    end
-
-    it "should return a number of points" do
-      questionnaire = @cat.questionnaires.new @attr
-      questionnaire.questions.new({:title => "example", :points =>1})
-      questionnaire.evaluate.should == 1
-    end
-
-  end
-
-
 end
