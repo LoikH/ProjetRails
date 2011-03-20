@@ -12,9 +12,9 @@ class PagesController < ApplicationController
 
   def top10
     @title = "Top 10"
-    @categories = Category.order(:popularity).limit(10)
-    @questionnaires = Questionnaire.order(:popularity).limit(10)
-    @utilisateurs = User.order(:score).limit(10)
+    @categories = Category.order(:popularity).limit(10).reverse_order 
+    @questionnaires = Questionnaire.order(:popularity).limit(10).reverse_order 
+    @utilisateurs = User.order(:score).limit(10).reverse_order
   end
 
 end
